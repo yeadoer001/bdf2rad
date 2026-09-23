@@ -1,7 +1,7 @@
 {
   "status": "GENERATED",
-  "jobname": "03_CHEXA20",
-  "source": "E:\\openradioss\\input\\03_CHEXA20.bdf",
+  "jobname": "02_MAT1_PSOLID_CHEXA8",
+  "source": "E:\\openradioss\\input\\02_MAT1_PSOLID_CHEXA8.bdf",
   "blocks": [
     {
       "name": "grid",
@@ -302,11 +302,10 @@
     }
   ],
   "cards": {
-    "GRID": 20,
+    "GRID": 8,
     "PSOLID": 1,
     "MAT1": 1,
     "CHEXA": 1,
-    "SPC": 4,
     "TSTEP1": 1
   },
   "diagnostics": [],
@@ -314,7 +313,7 @@
     {
       "card": "GRID",
       "status": "translated",
-      "count": 20,
+      "count": 8,
       "target": "/NODE"
     },
     {
@@ -331,34 +330,6 @@
       "mid": 1
     },
     {
-      "card": "PSOLID",
-      "source_pid": 1,
-      "family": "BRICK",
-      "status": "translated",
-      "target": "/PART/1"
-    },
-    {
-      "card": "CHEXA",
-      "order": 20,
-      "status": "downgraded_to_BRICK",
-      "target": "/BRICK/1",
-      "count": 1,
-      "source_pid": 1
-    },
-    {
-      "card": "SPC",
-      "sid": 901,
-      "status": "translated",
-      "target": [
-        "/GRNOD/NODE/400000/0",
-        "/BCS/400000"
-      ],
-      "Trarot": "111111",
-      "Skew_ID": 0,
-      "grnd_ID": 400000,
-      "count": 4
-    },
-    {
       "card": "TSTEP1",
       "status": "translated",
       "target": "/RUN/{{RUNNAME}}/1",
@@ -367,6 +338,6 @@
       "TSTOP_rad_ms": 0.0
     }
   ],
-  "starter": "D:\\BDF2RAD-X\\bdf2rad\\0-output\\03_CHEXA20_0000.rad",
-  "engine": "D:\\BDF2RAD-X\\bdf2rad\\0-output\\03_CHEXA20_0001.rad"
+  "starter": "D:\\BDF2RAD-X\\bdf2rad\\0-output\\02_MAT1_PSOLID_CHEXA8_0000.rad",
+  "engine": "D:\\BDF2RAD-X\\bdf2rad\\0-output\\02_MAT1_PSOLID_CHEXA8_0001.rad"
 }

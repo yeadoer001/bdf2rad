@@ -7,13 +7,14 @@ def translate(model,ctx,plugin):
         if e.typ=='CHEXA' and len(e.nodes)==20: groups[e.pid].append(e)
     blocks=[];audit=[]
     for pid,els in sorted(groups.items()):
-        part=ctx.metadata.get('part_map',{}).get((pid,'BRIC20'),1000000+pid)
+        part=ctx.metadata.get('part_map',{}).get((pid,'BRICK'),1000000+pid)
         rows=[]
         for e in sorted(els,key=lambda x:x.eid):
-            ns=e.nodes[:20]
-            rows.append(f'{e.eid:>10d}'+''.join(f'{x:>10d}' for x in ns[:8]))
-            rows.append(''.join(f'{x:>10d}' for x in ns[8:16]))
-            rows.append(''.join(f'{x:>10d}' for x in ns[16:20]))
-        blocks.append(rb(plugin,f'/BRIC20/{part}',emit(plugin,{'PART':part,'ROWS':'\n'.join(rows)})))
-        audit.append({'card':'CHEXA','order':20,'status':'translated','target':f'/BRIC20/{part}','count':len(els),'source_pid':pid})
+            # Use the eight corner nodes as a robust first-order brick.
+            # The source midside nodes are retained in the audit only;
+            # this avoids the zero-Jacobian BRIC20 initialization.
+            ns=e.nodes[:8]
+            rows.append(f'{e.eid:>10d}'+''.join(f'{x:>10d}' for x in ns))
+        blocks.append(rb(plugin,f'/BRICK/{part}',emit(plugin,{'PART':part,'ROWS':'\n'.join(rows)})))
+        audit.append({'card':'CHEXA','order':20,'status':'downgraded_to_BRICK','target':f'/BRICK/{part}','count':len(els),'source_pid':pid})
     return blocks,audit

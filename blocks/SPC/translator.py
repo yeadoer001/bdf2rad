@@ -69,6 +69,8 @@ def _format_trarot(trarot):
             f"Invalid Trarot value: {value!r}"
         )
 
+    # Radioss uses the six Trarot flags as one six-character field,
+    # followed by Skew_ID and grnd_ID.
     return f"{value:>10}"
 
 

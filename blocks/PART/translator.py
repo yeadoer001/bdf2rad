@@ -3,7 +3,7 @@ from bdf2rad.core.plugin_helpers import emit,rb,fi
 
 def _family(e):
     if e.typ=='CHEXA' and len(e.nodes)==8:return 'BRICK'
-    if e.typ=='CHEXA' and len(e.nodes)==20:return 'BRIC20'
+    if e.typ=='CHEXA' and len(e.nodes)==20:return 'BRICK'
     if e.typ=='CTETRA' and len(e.nodes)==10:return 'TETRA10'
     if e.typ=='CTETRA' and len(e.nodes)==4:return 'TETRA4'
     if e.typ=='CPENTA':return 'BRIC20_DEGENERATED'

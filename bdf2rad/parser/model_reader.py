@@ -223,24 +223,23 @@ def read_model(path, encoding="gb18030") -> Model:
                     F(f, 1)
                 )
 
-                x = (
-                    _f(F(f, 3), 0.0)
-                    or 0.0
-                )
-
-                y = (
-                    _f(F(f, 4), 0.0)
-                    or 0.0
-                )
-
-                z = (
-                    _f(F(f, 5), 0.0)
-                    or 0.0
-                )
-
-                cp = _i(
-                    F(f, 2)
-                )
+                # Some decks omit the optional CP field and use the
+                # compact form GRID,ID,X,Y,Z.  The fixed-field parser
+                # then returns only five fields including the name.
+                # Detect that form before applying the standard
+                # GRID,ID,CP,X,Y,Z offsets; otherwise coordinates are
+                # shifted and all Z values can collapse to zero.
+                compact_grid = len(f) <= 5
+                if compact_grid:
+                    cp = 0
+                    x = _f(F(f, 2), 0.0) or 0.0
+                    y = _f(F(f, 3), 0.0) or 0.0
+                    z = _f(F(f, 4), 0.0) or 0.0
+                else:
+                    cp = _i(F(f, 2))
+                    x = _f(F(f, 3), 0.0) or 0.0
+                    y = _f(F(f, 4), 0.0) or 0.0
+                    z = _f(F(f, 5), 0.0) or 0.0
 
                 cd = _i(
                     F(f, 6)
