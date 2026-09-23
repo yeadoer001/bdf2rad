@@ -1,0 +1,15 @@
+{
+  "type": "bdf2rad-block",
+  "name": "rbe2",
+  "source_cards": [
+    "RBE2"
+  ],
+  "order": 60,
+  "target_blocks": [
+    "/GRNOD/NODE + /RBE2"
+  ],
+  "status": "active",
+  "official_url": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/rbe2_starter_r.htm",
+  "template": "RBE2",
+  "plugin_version": "1.0.0"
+}

@@ -1,0 +1,13 @@
+{
+  "type": "bdf2rad-block",
+  "name": "bctadd",
+  "source_cards": [
+    "BCTADD"
+  ],
+  "order": 95,
+  "target_blocks": [],
+  "status": "audit-only",
+  "official_url": "",
+  "template": null,
+  "plugin_version": "1.0.0"
+}

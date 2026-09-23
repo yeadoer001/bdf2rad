@@ -1,0 +1,8 @@
+{
+  "name": "TETRA10",
+  "lines": [
+    "/TETRA10/{{PART}}",
+    "{{ROWS}}"
+  ],
+  "official_url": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/element_solids_starter_r.htm"
+}

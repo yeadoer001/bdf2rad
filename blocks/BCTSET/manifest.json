@@ -1,0 +1,15 @@
+{
+  "type": "bdf2rad-block",
+  "name": "bctset",
+  "source_cards": [
+    "BCTSET"
+  ],
+  "order": 91,
+  "target_blocks": [
+    "/INTER/TYPE7"
+  ],
+  "status": "active",
+  "official_url": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/inter_type7_starter_r.htm",
+  "template": null,
+  "plugin_version": "1.0.0"
+}

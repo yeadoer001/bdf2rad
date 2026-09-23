@@ -1,0 +1,163 @@
+{
+  "timestamp": "2026-09-20T12:36:41.711560+00:00",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "python": "C:\\Program Files\\Python311\\python.exe",
+  "workspace": "D:\\BDF2RAD-X",
+  "search_roots": [
+    "D:\\OpenRadioss"
+  ],
+  "scope": "Only supplied roots, environment roots and PATH; not an all-drive scan",
+  "commands": [
+    {
+      "command": [
+        "C:\\Program Files\\Python311\\python.EXE",
+        "--version"
+      ],
+      "returncode": 0,
+      "stdout": "Python 3.11.9\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\windows\\py.EXE",
+        "--version"
+      ],
+      "returncode": 101,
+      "stdout": "",
+      "stderr": "Unable to create process using 'C:\\Users\\dongcr1\\AppData\\Local\\Programs\\Python\\Python315\\python.exe --version': ???????????\n\n\n"
+    },
+    {
+      "command": [
+        "C:\\Users\\dongcr1\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\git\\cmd\\git.EXE",
+        "--version"
+      ],
+      "returncode": 0,
+      "stdout": "git version 2.53.0.windows.3\n",
+      "stderr": ""
+    }
+  ],
+  "executables": [
+    {
+      "path": "D:\\OpenRadioss\\OpenRadioss_win64\\OpenRadioss\\exec\\engine_win64.exe",
+      "size": 138132480,
+      "help": {
+        "command": [
+          "D:\\OpenRadioss\\OpenRadioss_win64\\OpenRadioss\\exec\\engine_win64.exe",
+          "-help"
+        ],
+        "returncode": 157,
+        "stdout": " \nRADIOSS Engine version OpenRadioss\n \nCommand line arguments help: \n  -help         / -h                   : Print this message\n  -version      / -v                   : Print RADIOSS release information\n  -input [FILE] / -i [FILE]            : Set RADIOSS Engine input file\n  -nthread [INTEGER] / -nt [INTEGER]   : Set Number of SMP threads per SPMD domain\n  -notrap                              : Disable error trapping\n  -norst                               : Do not write restart files\n  -dynamic_lib [FILE] / -dylib [FILE]  : Set name to the dynamic library for Radioss User Interface\n  -mdsdir [PATH] / -mds_libpath [PATH] : Set directory to MDS Library (default is %ALTAIR_HOME%/hwsolver/MultiscaleDesigner/%arch%)\n  -outfile=[PATH]                      : Set output file directory for all output and created files\n \n",
+        "stderr": "forrtl: severe (157): Program Exception - access violation\nImage              PC                Routine            Line        Source             \nengine_win64.exe   00007FF68F8E493B  Unknown               Unknown  Unknown\nengine_win64.exe   00007FF68B17AD68  Unknown               Unknown  Unknown\nengine_win64.exe   00007FF68B1D759D  Unknown               Unknown  Unknown\nengine_win64.exe   00007FF68B1D6E83  Unknown               Unknown  Unknown\nengine_win64.exe   00007FF6904073FB  Unknown               Unknown  Unknown\nengine_win64.exe   00007FF6904E6E60  Unknown               Unknown  Unknown\nKERNEL32.DLL       00007FFC6F76CD87  Unknown               Unknown  Unknown\nntdll.dll          00007FFC6FB0CAEC  Unknown               Unknown  Unknown\n"
+      }
+    },
+    {
+      "path": "D:\\OpenRadioss\\OpenRadioss_win64\\OpenRadioss\\exec\\engine_win64_impi.exe",
+      "size": 145241088
+    },
+    {
+      "path": "D:\\OpenRadioss\\OpenRadioss_win64\\OpenRadioss\\exec\\engine_win64_impi_sp.exe",
+      "size": 148707840
+    },
+    {
+      "path": "D:\\OpenRadioss\\OpenRadioss_win64\\OpenRadioss\\exec\\engine_win64_sp.exe",
+      "size": 142544896
+    },
+    {
+      "path": "D:\\OpenRadioss\\OpenRadioss_win64\\OpenRadioss\\exec\\starter_win64.exe",
+      "size": 51955200,
+      "help": {
+        "command": [
+          "D:\\OpenRadioss\\OpenRadioss_win64\\OpenRadioss\\exec\\starter_win64.exe",
+          "-help"
+        ],
+        "returncode": 0,
+        "stdout": " \nRADIOSS Starter version OpenRadioss\n \nCommand line arguments help: \n  -help           / -h                 : Print this message\n  -version        / -v                 : Print RADIOSS release information\n  -input [FILE]   / -i [FILE]          : Set RADIOSS Starter input file\n  -nspmd [INTEGER] / -np [INTEGER]     : Set Number of RADIOSS SPMD domains \n  -nthread [INTEGER] / -nt [INTEGER]   : Set Number of SMP threads per SPMD domain\n  -check                               : Check run - no restart file written\n  -notrap                              : Disable error trapping\n  -dynamic_lib [FILE] / -dylib [FILE]  : Set name to the dynamic library for Radioss User Interface\n  -mdsdir [PATH] / -mds_libpath [PATH] : Set directory to MDS Library (default is %ALTAIR_HOME%/hwsolver/MultiscaleDesigner/%arch%)\n  -outfile=[PATH]                      : Set output file directory for all output and created files\n  -hstp_write                          : Write the xml file hst_input.hstp with the parameters for HyperStudy\n  -hstp_read                           : Read the xml file hst_input.hstp with the parameters from HyperStudy\n  -rxalea [real value]                 : Activation of nodal random noise with a [value] alea\n  -rseed [real value]                  : Optional value, set the seed value for nodal random noise\n  -python                              : Python function in model is safe and can be used\n  -checksum_report [rootname]            : Parse output files for /CHECKSUM fingerprints and [rootname].report file\n \n \n",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "D:\\OpenRadioss\\OpenRadioss_win64\\OpenRadioss\\exec\\starter_win64_sp.exe",
+      "size": 51510272
+    }
+  ],
+  "config_directories": [
+    {
+      "path": "D:\\OpenRadioss\\OpenRadioss_win64\\OpenRadioss\\hm_cfg_files",
+      "radioss_versions": [
+        "radioss100",
+        "radioss110",
+        "radioss120",
+        "radioss130",
+        "radioss140",
+        "radioss2017",
+        "radioss2018",
+        "radioss2019",
+        "radioss2020",
+        "radioss2021",
+        "radioss2022",
+        "radioss2023",
+        "radioss2024",
+        "radioss2025",
+        "radioss2026",
+        "radioss2612",
+        "radioss41",
+        "radioss42",
+        "radioss43",
+        "radioss44",
+        "radioss51",
+        "radioss90"
+      ]
+    }
+  ],
+  "source_archives": [
+    {
+      "path": "D:\\OpenRadioss\\OpenRadioss-main.zip",
+      "entries": 12129,
+      "starter_source_files": 2160,
+      "examples": 166
+    }
+  ],
+  "source_directories": [],
+  "scan_errors": [],
+  "optional_modules": {
+    "numpy": false,
+    "pytest": false,
+    "yaml": false,
+    "pyNastran": false
+  },
+  "official_access": [
+    {
+      "url": "https://github.com/OpenRadioss/OpenRadioss",
+      "status": 200,
+      "resolved_url": "https://github.com/OpenRadioss/OpenRadioss",
+      "bytes_read": 345281,
+      "sha256": "8c95bfb83fcbc3443b06b11667250cee4a682d369fc6a6b56dbeab0aeb97f988",
+      "note": "HTTP accessibility only; not keyword validation"
+    },
+    {
+      "url": "https://github.com/OpenRadioss/Tools",
+      "status": 200,
+      "resolved_url": "https://github.com/OpenRadioss/Tools",
+      "bytes_read": 284813,
+      "sha256": "f4178f708c5d4ff14c41f49ff129fe57441906107473e5d278f01b6e7617e954",
+      "note": "HTTP accessibility only; not keyword validation"
+    },
+    {
+      "url": "https://openradioss.atlassian.net/wiki/spaces/OPENRADIOSS",
+      "status": 200,
+      "resolved_url": "https://openradioss.atlassian.net/wiki/spaces/OPENRADIOSS",
+      "bytes_read": 1012274,
+      "sha256": "ff2db93e800ec4b6a098fbe69abd61dc0eb21b8922489936759bfa84d58b2bea",
+      "note": "HTTP accessibility only; not keyword validation"
+    },
+    {
+      "url": "https://help.altair.com/hwdesktop/hwx/topics/conversion_between_solvers/convert_nastran_to_radioss_mapping.htm",
+      "status": 200,
+      "resolved_url": "https://help.altair.com/hwdesktop/hwx/topics/conversion_between_solvers/convert_nastran_to_radioss_mapping.htm",
+      "bytes_read": 74157,
+      "sha256": "8d688cd5c2878b80387b2f8e9e914cc9790b685874ba4ca75ac0cd12fd156541",
+      "note": "HTTP accessibility only; not keyword validation"
+    }
+  ],
+  "solver_validation": "NOT_RUN (help output is not Starter/Engine model validation)"
+}

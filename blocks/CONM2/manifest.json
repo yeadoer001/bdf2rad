@@ -1,0 +1,15 @@
+{
+  "type": "bdf2rad-block",
+  "name": "conm2",
+  "source_cards": [
+    "CONM2"
+  ],
+  "order": 70,
+  "target_blocks": [
+    "/GRNOD/NODE + /ADMAS/0"
+  ],
+  "status": "active",
+  "official_url": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/admas_starter_r.htm",
+  "template": null,
+  "plugin_version": "1.0.0"
+}

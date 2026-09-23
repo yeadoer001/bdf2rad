@@ -1,0 +1,15 @@
+{
+  "type": "bdf2rad-block",
+  "name": "cpenta",
+  "source_cards": [
+    "CPENTA"
+  ],
+  "order": 43,
+  "target_blocks": [
+    "/BRICK or /BRIC20"
+  ],
+  "status": "active",
+  "official_url": "https://www.2024.help.altair.com/2024/hwsolvers/rad/topics/solvers/rad/element_solids_starter_r.htm",
+  "template": null,
+  "plugin_version": "1.0.0"
+}

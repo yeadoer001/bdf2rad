@@ -1,0 +1,15 @@
+{
+  "type": "bdf2rad-block",
+  "name": "psolid",
+  "source_cards": [
+    "PSOLID"
+  ],
+  "order": 30,
+  "target_blocks": [
+    "/PROP/SOLID + /PART"
+  ],
+  "status": "active",
+  "official_url": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/prop_type14_solid_starter_r.htm",
+  "template": "PSOLID",
+  "plugin_version": "1.0.0"
+}

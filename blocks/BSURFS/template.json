@@ -1,0 +1,1 @@
+{"name":"SURF_SEG","lines":["/SURF/SEG/{{ID}}","{{TITLE}}","{{ROWS}}","/GRNOD/NODE/{{GRID}}","{{GROUP_TITLE}}","{{NODE_ROWS}}"],"official_url":"https://help.altair.com/hwsolvers/rad/topics/solvers/rad/surf_seg_starter_r.htm","format_lock":"Triangular segments omit the fourth node field; never write node ID 0."}

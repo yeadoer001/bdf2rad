@@ -1,0 +1,14 @@
+{
+  "status": "FAILED",
+  "card_counts": {},
+  "mapping_status": "NOT_IMPLEMENTED",
+  "physics_equivalence": "NOT_VERIFIED",
+  "diagnostics": [
+    {
+      "code": "INPUT_ERROR",
+      "message": "'utf-8' codec can't decode byte 0xd6 in position 1055: invalid continuation byte"
+    }
+  ],
+  "include_tree": [],
+  "control_lines": []
+}

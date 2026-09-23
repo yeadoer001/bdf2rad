@@ -1,0 +1,15 @@
+{
+  "type": "bdf2rad-block",
+  "name": "grid",
+  "source_cards": [
+    "GRID"
+  ],
+  "order": 10,
+  "target_blocks": [
+    "/NODE"
+  ],
+  "status": "active",
+  "official_url": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/nodes_overview_starter_r.htm",
+  "template": "GRID",
+  "plugin_version": "1.0.0"
+}

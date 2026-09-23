@@ -1,0 +1,13 @@
+{
+  "name": "RBE3",
+  "lines": [
+    "/GRNOD/NODE/{{GRID}}",
+    "RBE3_{{ID}}_INDEPENDENT",
+    "{{NODE_ROWS}}",
+    "/RBE3/{{ID}}",
+    "{{TITLE}}",
+    "{{NODE}}{{TRAROT}}{{NSET}}{{IMOD}}{{IFORM}}",
+    "{{ROWS}}"
+  ],
+  "official_url": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/rbe3_starter_r.htm"
+}

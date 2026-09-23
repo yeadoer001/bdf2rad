@@ -1,0 +1,15 @@
+{
+  "type": "bdf2rad-block",
+  "name": "chexa8",
+  "source_cards": [
+    "CHEXA"
+  ],
+  "order": 40,
+  "target_blocks": [
+    "/BRICK"
+  ],
+  "status": "active",
+  "official_url": "https://www.2024.help.altair.com/2024/hwsolvers/rad/topics/solvers/rad/element_solids_starter_r.htm",
+  "template": null,
+  "plugin_version": "1.0.0"
+}

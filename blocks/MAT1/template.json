@@ -1,0 +1,13 @@
+{
+  "name": "MAT1",
+  "lines": [
+    "/MAT/LAW1/{{ID}}",
+    "{{TITLE}}",
+    "#              RHO_I",
+    "{{RHO}}",
+    "#                  E                  Nu",
+    "{{E}}{{NU}}"
+  ],
+  "format_lock": "Only {{...}} placeholders may be replaced; line order and literal text are fixed.",
+  "official_url": "https://www.2024.help.altair.com/2024/hwsolvers/rad/topics/solvers/rad/mat_law1_elast_starter_r.htm"
+}

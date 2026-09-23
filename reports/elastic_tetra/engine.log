@@ -1,0 +1,66 @@
+************************************************************************
+**                                                                    **
+**                                                                    **
+**                         OpenRadioss Engine                         **
+**                                                                    **
+**            Non-linear Finite Element Analysis Software             **
+**                                                                    **
+**                                                                    **
+**                                                                    **
+**                  Windows 64 bits, Intel compiler                   **
+**                      Double Precision Version                      **
+**                                                                    **
+**                                                                    **
+**                                                                    **
+************************************************************************
+** OpenRadioss Software                                               **
+** COPYRIGHT (C) 2026 Siemens                                         **
+** Licensed under GNU Affero General Public License.                  **
+** See License file.                                                  **
+************************************************************************
+ 
+ ROOT: elastic_tetra  RESTART: 0001
+ NUMBER OF HMPP PROCESSES     1
+ 21/09/2026
+ NC=       0 T= 0.0000E+00 DT= 8.2108E-07 ERR=  0.0% DM/M= 0.0000E+00
+     ANIMATION FILE: elastic_tetraA001 WRITTEN
+     ANIMATION FILE: elastic_tetraA002 WRITTEN
+     RESTART FILES: elastic_tetra_0001_[0001-0001].rst WRITTEN
+  
+                           ** CPU USER TIME **
+  
+  
+                        ** SUMMARY **
+  
+ #PROC  ELEMENT   KINCOND   INTEG     IO        T0        ASM       RESOL    
+   1   .0000E+00 .0000E+00 .0000E+00 .1562E-01 .0000E+00 .0000E+00 .1562E-01
+ 
+                   ** CUMULATIVE CPU TIME SUMMARY **
+  
+ CONTACT SORTING.............: .0000E+00     0.00 % 
+ CONTACT FORCES..............: .0000E+00     0.00 % 
+ ELEMENT FORCES..............: .0000E+00     0.00 % 
+ KINEMATIC COND..............: .0000E+00     0.00 % 
+ INTEGRATION.................: .0000E+00     0.00 % 
+ ASSEMBLING..................: .0000E+00     0.00 % 
+ OTHERS (including I/O)......: .1562E-01   100.00 % 
+ TOTAL.......................: .1562E-01   100.00 % 
+  
+                   ** MEMORY USAGE STATISTICS **
+  
+ TOTAL MEMORY USED .........................:       55 MB
+ MAXIMUM MEMORY PER PROCESSOR...............:       55 MB
+ MINIMUM MEMORY PER PROCESSOR...............:       55 MB
+ AVERAGE MEMORY PER PROCESSOR...............:       55 MB
+  
+                   ** DISK USAGE STATISTICS **
+  
+ TOTAL DISK SPACE USED .....................:          0 MB
+ ANIMATION/H3D/TH/OUTP SIZE ................:          0 MB
+ RESTART FILE SIZE .........................:          0 MB
+  
+ ELAPSED TIME     =          0.21 s
+                          0:00:00
+  
+     NORMAL TERMINATION      
+     TOTAL NUMBER OF CYCLES  :       2

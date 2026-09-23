@@ -1,0 +1,16 @@
+from dataclasses import dataclass, field
+@dataclass(slots=True)
+class RadiossIR:
+    nodes: dict = field(default_factory=dict)
+    elements: dict = field(default_factory=dict)
+    materials: dict = field(default_factory=dict)
+    properties: dict = field(default_factory=dict)
+    parts: dict = field(default_factory=dict)
+    masses: dict = field(default_factory=dict)
+    rbe2: dict = field(default_factory=dict)
+    rbe3: dict = field(default_factory=dict)
+    controls: dict = field(default_factory=dict)
+    starter_lines: list[str] = field(default_factory=list)
+    engine_lines: list[str] = field(default_factory=list)
+    provenance: dict = field(default_factory=dict)
+    warnings: list[str] = field(default_factory=list)

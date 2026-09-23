@@ -1,0 +1,221 @@
+{
+  "status": "FAILED",
+  "card_counts": {
+    "NASTRAN": 1,
+    "ID": 1,
+    "NLCNTLG": 1,
+    "NLCNTL2": 1,
+    "BCTADD": 1,
+    "BCTSET": 1,
+    "DESC": 1,
+    "BGADD": 1,
+    "BGSET": 313
+  },
+  "mapping_status": "NOT_IMPLEMENTED",
+  "physics_equivalence": "NOT_VERIFIED",
+  "diagnostics": [
+    {
+      "code": "CONTINUATION_MISMATCH",
+      "message": "Expected '+', got '*'",
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\Solution 3-1.bdf",
+        "line": 775
+      },
+      "severity": "ERROR",
+      "card": "",
+      "raw": []
+    }
+  ],
+  "include_tree": [],
+  "control_lines": [
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\Solution 3-1.bdf",
+        "line": 54
+      },
+      "raw": "SOL 402"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\Solution 3-1.bdf",
+        "line": 55
+      },
+      "raw": "CEND"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\Solution 3-1.bdf",
+        "line": 63
+      },
+      "raw": "ECHO = NONE"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\Solution 3-1.bdf",
+        "line": 64
+      },
+      "raw": "TEMP(INIT) = 2"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\Solution 3-1.bdf",
+        "line": 65
+      },
+      "raw": "LOAD = 1"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\Solution 3-1.bdf",
+        "line": 66
+      },
+      "raw": "BCSET = 400"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\Solution 3-1.bdf",
+        "line": 67
+      },
+      "raw": "BGSET = 400"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\Solution 3-1.bdf",
+        "line": 68
+      },
+      "raw": "NLCNTL = 400"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\Solution 3-1.bdf",
+        "line": 69
+      },
+      "raw": "DISPLACEMENT(PLOT,REAL) = ALL"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\Solution 3-1.bdf",
+        "line": 70
+      },
+      "raw": "ELSTRN(PLOT,FIBER,CENTER) = ALL"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\Solution 3-1.bdf",
+        "line": 71
+      },
+      "raw": "GSTRESS(PLOT) = ALL"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\Solution 3-1.bdf",
+        "line": 72
+      },
+      "raw": "STRAIN(PLOT,REAL,VONMISES,FIBER,CENTER) = ALL"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\Solution 3-1.bdf",
+        "line": 73
+      },
+      "raw": "STRESS(PLOT,REAL,VONMISES,CENTER) = ALL"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\Solution 3-1.bdf",
+        "line": 75
+      },
+      "raw": "SUBCASE 1"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\Solution 3-1.bdf",
+        "line": 76
+      },
+      "raw": "  LABEL = Subcase - Nonlinear Dynamics 1"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\Solution 3-1.bdf",
+        "line": 77
+      },
+      "raw": "  SPC = 317"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\Solution 3-1.bdf",
+        "line": 78
+      },
+      "raw": "  IC = 401"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\Solution 3-1.bdf",
+        "line": 79
+      },
+      "raw": "  NLCNTL = 400"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\Solution 3-1.bdf",
+        "line": 80
+      },
+      "raw": "  TSTEP = 401"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\Solution 3-1.bdf",
+        "line": 81
+      },
+      "raw": "  DISPLACEMENT(PLOT,REAL) = ALL"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\Solution 3-1.bdf",
+        "line": 82
+      },
+      "raw": "  ELSTRN(PLOT,FIBER,CENTER) = ALL"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\Solution 3-1.bdf",
+        "line": 83
+      },
+      "raw": "  GSTRESS(PLOT) = ALL"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\Solution 3-1.bdf",
+        "line": 84
+      },
+      "raw": "  STRAIN(PLOT,REAL,VONMISES,FIBER,CENTER) = ALL"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\Solution 3-1.bdf",
+        "line": 85
+      },
+      "raw": "  STRESS(PLOT,REAL,VONMISES,CENTER) = ALL"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\Solution 3-1.bdf",
+        "line": 86
+      },
+      "raw": "  ANALYSIS = DYNAMICS"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\Solution 3-1.bdf",
+        "line": 87
+      },
+      "raw": "  SEQDEP = YES"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\Solution 3-1.bdf",
+        "line": 95
+      },
+      "raw": "BEGIN BULK"
+    }
+  ]
+}

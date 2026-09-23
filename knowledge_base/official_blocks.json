@@ -1,0 +1,399 @@
+{
+  "version": "Radioss 2026 reference; output Starter keeps the user-supplied runnable 2023-format header unchanged except explicit variable fields",
+  "header_source": "user-supplied EuroSID_II_0000.rad",
+  "starter_header_exact": [
+    "#RADIOSS STARTER",
+    "#--------------------------------------------------------------------------------------------------|",
+    "# <EuroSID_II> (\"Model\")",
+    "# Copyright (C) 2026 SISW Siemens Industry Software Inc. (\"Holder\")",
+    "# Model is licensed by Holder under CC BY-NC 4.0",
+    "# (<https://creativecommons.org/licenses/by-nc/4.0/legalcode).>",
+    "#",
+    "#",
+    "#  This model was developed for kinematic assessment only. It should not be used for the evaluation",
+    "#  of injury metrics",
+    "#",
+    "#--------------------------------------------------------------------------------------------------|",
+    "#",
+    "#---1----|----2----|----3----|----4----|----5----|----6----|----7----|----8----|----9----|---10----|",
+    "/BEGIN",
+    "EuroSID_II",
+    "      2023         0",
+    "                  kg                  mm                  ms",
+    "                  kg                  mm                  ms",
+    "#---1----|----2----|----3----|----4----|----5----|----6----|----7----|----8----|----9----|---10----|",
+    "#-  1. CONTROL CARDS:",
+    "#---1----|----2----|----3----|----4----|----5----|----6----|----7----|----8----|----9----|---10----|",
+    "/TITLE",
+    "EuroSID_II Dummy Model (kg, mm, ms)",
+    "#---1----|----2----|----3----|----4----|----5----|----6----|----7----|----8----|----9----|---10----|",
+    "#-  2. MATERIALS:",
+    "#---1----|----2----|----3----|----4----|----5----|----6----|----7----|----8----|----9----|---10----|"
+  ],
+  "engine_seed_exact": [
+    "#--------------------------------------------------------------------------------------------------|",
+    "# <EuroSID_II> (\"Model\")",
+    "# Copyright (C) 2026 SISW Siemens Industry Software Inc. (\"Holder\")",
+    "# Model is licensed by Holder under CC BY-NC 4.0",
+    "# (<https://creativecommons.org/licenses/by-nc/4.0/legalcode).>",
+    "#",
+    "#",
+    "#  This model was developed for kinematic assessment only. It should not be used for the evaluation",
+    "#  of injury metrics",
+    "#",
+    "#---1----|----2----|----3----|----4----|----5----|----6----|----7----|----8----|----9----|---10----|",
+    "/ANIM/DT",
+    "#   TSTART     TFREQ",
+    "0.000000 2.000000",
+    "/ANIM/MASS",
+    "/PARITH/ON",
+    "/PRINT/-1/55",
+    "/RFILE",
+    "#            NCYCLE",
+    "100000",
+    "/RUN/EuroSID_II/1",
+    "               150.1",
+    "/TFILE/4",
+    "#            dT_HIS",
+    "0.100000",
+    "/TITLE",
+    "EuroSID_II Dummy Model (kg, mm, ms)",
+    "/VERS/2023"
+  ],
+  "blocks": {
+    "NODE": {
+      "keyword": "/NODE",
+      "format": [
+        "/NODE",
+        "node_ID X Y Z"
+      ]
+    },
+    "PART": {
+      "keyword": "/PART/{part_ID}",
+      "format": [
+        "/PART/{part_ID}",
+        "part_title",
+        "prop_ID mat_ID subset_ID Thick"
+      ]
+    },
+    "PROP_SOLID": {
+      "keyword": "/PROP/SOLID/{prop_ID}",
+      "format": [
+        "/PROP/SOLID/{prop_ID}",
+        "prop_title",
+        "Isolid Ismstr Icpre Itetra10 Inpts Itetra4 Iframe dn",
+        "qa qb h LAMBDA_V MU_V",
+        "dt_min"
+      ],
+      "source": "user_examples+official /PROP/SOLID overview"
+    },
+    "MAT_LAW1": {
+      "keyword": "/MAT/LAW1/{mat_ID}",
+      "aliases": [
+        "/MAT/ELAST/{mat_ID}"
+      ],
+      "format": [
+        "/MAT/LAW1/{mat_ID}",
+        "mat_title",
+        "rho_I",
+        "E Nu"
+      ],
+      "source": "https://www.2024.help.altair.com/2024/hwsolvers/rad/topics/solvers/rad/mat_law1_elast_starter_r.htm"
+    },
+    "BRICK": {
+      "keyword": "/BRICK/{part_ID}",
+      "format": [
+        "/BRICK/{part_ID}",
+        "brick_ID node1 node2 node3 node4 node5 node6 node7 node8"
+      ],
+      "source": "https://www.help.altair.com/2021/hwsolvers/rad/topics/solvers/rad/brick_starter_r.htm"
+    },
+    "BRIC20": {
+      "keyword": "/BRIC20/{part_ID}",
+      "format": [
+        "/BRIC20/{part_ID}",
+        "brick_ID node1..node8",
+        "node9..node16",
+        "node17..node20"
+      ],
+      "source": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/bric20_starter_r.htm"
+    },
+    "TETRA10": {
+      "keyword": "/TETRA10/{part_ID}",
+      "format": [
+        "/TETRA10/{part_ID}",
+        "tetra_ID",
+        "node1..node10"
+      ],
+      "source": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/tetra10_starter_r.htm"
+    },
+    "RBE2": {
+      "keyword": "/RBE2/{id}",
+      "format": [
+        "/RBE2/{id}",
+        "title",
+        "node_ID Trarot_ref Skew_ID grnd_ID Iflag"
+      ],
+      "source": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/rbe2_starter_r.htm"
+    },
+    "RBE3": {
+      "keyword": "/RBE3/{id}",
+      "format": [
+        "/RBE3/{id}",
+        "title",
+        "Node_IDr Trarot_ref N_set I_modif",
+        "WT_i Trarot_M_i skew_ID_i grnd_ID_i"
+      ],
+      "source": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/rbe3_starter_r.htm"
+    },
+    "GRNOD_NODE": {
+      "keyword": "/GRNOD/NODE/{id}",
+      "format": [
+        "/GRNOD/NODE/{id}",
+        "title",
+        "up to 10 node IDs per line"
+      ],
+      "source": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/grnod_node_starter_r.htm"
+    },
+    "BCS": {
+      "keyword": "/BCS/{id}",
+      "format": [
+        "/BCS/{id}",
+        "title",
+        "Trarot Skew_ID grnd_ID"
+      ],
+      "source": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/bcs_starter_r.htm"
+    },
+    "INIVEL_TRA": {
+      "keyword": "/INIVEL/TRA/{id}",
+      "format": [
+        "/INIVEL/TRA/{id}",
+        "title",
+        "VX VY VZ grnd_ID skew_ID",
+        "Tstart sens_ID"
+      ],
+      "source": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/inivel_starter_r.htm"
+    },
+    "ADMAS0": {
+      "keyword": "/ADMAS/0/{id}",
+      "format": [
+        "/ADMAS/0/{id}",
+        "title",
+        "MASS grnod_ID",
+        "/GRNOD/...",
+        "node list"
+      ],
+      "source": "user examples+official /ADMAS"
+    },
+    "GRAV": {
+      "keyword": "/GRAV/{id}",
+      "format": [
+        "/GRAV/{id}",
+        "title",
+        "fct_IDT Dir skew_ID sens_ID grnd_ID Ascale_x Fscale_Y"
+      ],
+      "source": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/grav_starter_r.htm"
+    },
+    "SURF_SEG": {
+      "keyword": "/SURF/SEG/{id}",
+      "format": [
+        "/SURF/SEG/{id}",
+        "title",
+        "seg_ID node1 node2 node3 node4 repeated"
+      ],
+      "source": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/surf_seg_starter_r.htm"
+    },
+    "INTER_TYPE2": {
+      "keyword": "/INTER/TYPE2/{id}",
+      "format": [
+        "/INTER/TYPE2/{id}",
+        "title",
+        "grnd_IDs surf_IDm Ignore Spotflag Level Isearch Idel2 surf_IDs dsearch",
+        "conditional rows"
+      ],
+      "source": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/inter_type2_starter_r.htm"
+    },
+    "INTER_TYPE7": {
+      "keyword": "/INTER/TYPE7/{id}",
+      "format": [
+        "/INTER/TYPE7/{id}",
+        "title",
+        "Secon_id Main_id Istf Ithe Igap Ibag Idel Icurv Iadm",
+        "Fscalegap Gapmax Fpenmax Itied",
+        "Stmin Stmax %mesh_size dtmin Irem_gap Irem_i2",
+        "Stfac Fric Gapmin Tstart Tstop",
+        "IBC Inacti VisS VisF Bumult",
+        "Ifric Ifiltr Xfreq Iform sens_ID fct_IDf AscaleF fric_ID"
+      ],
+      "source": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/inter_type7_starter_r.htm"
+    },
+    "FUNCT": {
+      "keyword": "/FUNCT/{id}",
+      "format": [
+        "/FUNCT/{id}",
+        "title",
+        "X Y repeated"
+      ],
+      "source": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/funct_starter_r.htm"
+    },
+    "RUN": {
+      "keyword": "/RUN/{run_name}/{run_number}",
+      "format": [
+        "/RUN/{run_name}/{run_number}",
+        "Tstop"
+      ],
+      "source": "https://2023.help.altair.com/2023/hwsolvers/rad/topics/solvers/rad/run_engine_r.htm"
+    },
+    "ANIM_DT": {
+      "keyword": "/ANIM/DT",
+      "format": [
+        "/ANIM/DT",
+        "TSTART TFREQ"
+      ]
+    },
+    "ANIM_MASS": {
+      "keyword": "/ANIM/MASS",
+      "format": [
+        "/ANIM/MASS"
+      ]
+    },
+    "PARITH_ON": {
+      "keyword": "/PARITH/ON",
+      "format": [
+        "/PARITH/ON"
+      ]
+    },
+    "PRINT": {
+      "keyword": "/PRINT/-1/55",
+      "format": [
+        "/PRINT/-1/55"
+      ]
+    },
+    "RFILE": {
+      "keyword": "/RFILE",
+      "format": [
+        "/RFILE",
+        "NCYCLE"
+      ]
+    },
+    "TFILE": {
+      "keyword": "/TFILE/4",
+      "format": [
+        "/TFILE/4",
+        "dT_HIS"
+      ]
+    },
+    "VERS": {
+      "keyword": "/VERS/2023",
+      "format": [
+        "/VERS/2023"
+      ]
+    }
+  },
+  "template_lines": {
+    "MAT_LAW1": [
+      "/MAT/LAW1/{id}",
+      "{title}",
+      "#              RHO_I",
+      "{rho}",
+      "#                  E                  Nu",
+      "{E}{nu}"
+    ],
+    "PROP_SOLID": [
+      "/PROP/SOLID/{id}",
+      "{title}",
+      "#   Isolid    Ismstr               Icpre  Itetra10     Inpts   Itetra4    Iframe                  dn",
+      "{Isolid}{Ismstr}{Icpre}{Itetra10}{Inpts}{Itetra4}{Iframe}{dn}",
+      "#                q_a                 q_b                   h            LAMBDA_V                MU_V",
+      "{qa}{qb}{h}{LAMBDA_V}{MU_V}",
+      "#             dt_min",
+      "{dt_min}"
+    ],
+    "PART": [
+      "/PART/{id}",
+      "{title}",
+      "{prop}{mat}{subset}"
+    ],
+    "BRICK": [
+      "/BRICK/{part}",
+      "{eid}{n1}{n2}{n3}{n4}{n5}{n6}{n7}{n8}"
+    ],
+    "BRIC20": [
+      "/BRIC20/{part}",
+      "{eid}{n1}{n2}{n3}{n4}{n5}{n6}{n7}{n8}",
+      "{n9}{n10}{n11}{n12}{n13}{n14}{n15}{n16}",
+      "{n17}{n18}{n19}{n20}"
+    ],
+    "TETRA10": [
+      "/TETRA10/{part}",
+      "{eid}",
+      "{n1}{n2}{n3}{n4}{n5}{n6}{n7}{n8}{n9}{n10}"
+    ],
+    "GRNOD_NODE": [
+      "/GRNOD/NODE/{id}",
+      "{title}",
+      "{nodes}"
+    ],
+    "BCS": [
+      "/BCS/{id}",
+      "{title}",
+      "{trarot}{skew}{grnd}"
+    ],
+    "INIVEL_TRA": [
+      "/INIVEL/TRA/{id}",
+      "{title}",
+      "{vx}{vy}{vz}{grnd}{skew}",
+      "{tstart}{sens}"
+    ],
+    "RBE2": [
+      "/RBE2/{id}",
+      "{title}",
+      "{node}{trarot}{skew}{grnd}{flag}"
+    ],
+    "RBE3": [
+      "/RBE3/{id}",
+      "{title}",
+      "{node}{trarot}{nset}{imod}",
+      "{wt}{trarot_m}{skew}{grnd}"
+    ],
+    "ADMAS0": [
+      "/ADMAS/0/{id}",
+      "{title}",
+      "{mass}{grnd}"
+    ],
+    "GRAV": [
+      "/GRAV/{id}",
+      "{title}",
+      "{fct}{dir}{skew}{sens}{grnd}{ascale}{fscale}"
+    ],
+    "SURF_SEG": [
+      "/SURF/SEG/{id}",
+      "{title}",
+      "{seg}{n1}{n2}{n3}{n4}"
+    ],
+    "INTER_TYPE7": [
+      "/INTER/TYPE7/{id}",
+      "{title}",
+      "{r1}",
+      "{r2}",
+      "{r3}",
+      "{r4}",
+      "{r5}",
+      "{r6}"
+    ],
+    "INTER_TYPE2": [
+      "/INTER/TYPE2/{id}",
+      "{title}",
+      "{r1}"
+    ],
+    "FUNCT": [
+      "/FUNCT/{id}",
+      "{title}",
+      "{x}{y}"
+    ],
+    "RUN": [
+      "/RUN/{job}/1",
+      "{tstop}"
+    ]
+  }
+}

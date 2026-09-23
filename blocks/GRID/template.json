@@ -1,0 +1,9 @@
+{
+  "name": "GRID",
+  "lines": [
+    "/NODE",
+    "{{ROWS}}"
+  ],
+  "format_lock": "Only {{...}} placeholders may be replaced; line order and literal text are fixed.",
+  "official_url": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/nodes_overview_starter_r.htm"
+}

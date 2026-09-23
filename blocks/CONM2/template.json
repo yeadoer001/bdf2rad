@@ -1,0 +1,9 @@
+{
+  "name": "ADMAS0",
+  "lines": [
+    "/ADMAS/0/{{ID}}",
+    "{{TITLE}}",
+    "{{MASS}}{{GRND}}"
+  ],
+  "official_url": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/admas_starter_r.htm"
+}

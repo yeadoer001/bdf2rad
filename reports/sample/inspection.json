@@ -1,0 +1,66 @@
+{
+  "status": "PARSED",
+  "card_counts": {
+    "GRID": 4,
+    "CQUAD4": 1,
+    "PSHELL": 1,
+    "MAT1": 1,
+    "SPC1": 1,
+    "FORCE": 1
+  },
+  "mapping_status": "NOT_IMPLEMENTED",
+  "physics_equivalence": "NOT_VERIFIED",
+  "diagnostics": [],
+  "include_tree": [],
+  "control_lines": [
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\parser_sample.bdf",
+        "line": 2
+      },
+      "raw": "SOL 101"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\parser_sample.bdf",
+        "line": 3
+      },
+      "raw": "CEND"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\parser_sample.bdf",
+        "line": 4
+      },
+      "raw": "SUBCASE 1"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\parser_sample.bdf",
+        "line": 5
+      },
+      "raw": " SPC = 1"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\parser_sample.bdf",
+        "line": 6
+      },
+      "raw": " LOAD = 2"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\parser_sample.bdf",
+        "line": 7
+      },
+      "raw": "BEGIN BULK"
+    },
+    {
+      "source": {
+        "file": "D:\\BDF2RAD-X\\examples\\parser_sample.bdf",
+        "line": 17
+      },
+      "raw": "ENDDATA"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "type": "bdf2rad-block",
+  "name": "mat1",
+  "source_cards": [
+    "MAT1"
+  ],
+  "order": 20,
+  "target_blocks": [
+    "/MAT/LAW1"
+  ],
+  "status": "active",
+  "official_url": "https://www.2024.help.altair.com/2024/hwsolvers/rad/topics/solvers/rad/mat_law1_elast_starter_r.htm",
+  "template": "MAT1",
+  "plugin_version": "1.0.0"
+}

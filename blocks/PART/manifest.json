@@ -1,0 +1,15 @@
+{
+  "type": "bdf2rad-block",
+  "name": "part",
+  "source_cards": [
+    "PSOLID"
+  ],
+  "order": 35,
+  "target_blocks": [
+    "/PART"
+  ],
+  "status": "active",
+  "official_url": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/part_starter_r.htm",
+  "template": "PART",
+  "plugin_version": "1.0.0"
+}

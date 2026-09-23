@@ -1,0 +1,15 @@
+{
+  "type": "bdf2rad-block",
+  "name": "tic",
+  "source_cards": [
+    "TIC"
+  ],
+  "order": 51,
+  "target_blocks": [
+    "/GRNOD/NODE + /INIVEL/TRA"
+  ],
+  "status": "active",
+  "official_url": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/inivel_starter_r.htm",
+  "template": null,
+  "plugin_version": "1.0.0"
+}

@@ -1,0 +1,7 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {"name":"BDF2RAD: Run","type":"python","request":"launch","program":"${workspaceFolder}\\bridge.py","console":"integratedTerminal"},
+    {"name":"BDF2RAD: Scan Blocks","type":"python","request":"launch","program":"${workspaceFolder}\\bridge.py","args":["scan"],"console":"integratedTerminal"}
+  ]
+}

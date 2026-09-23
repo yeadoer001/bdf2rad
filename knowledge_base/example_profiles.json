@@ -1,0 +1,13 @@
+{
+  "EuroSID_II_0000.rad": "Runnable Starter seed used to preserve the exact header and section style.",
+  "EuroSID_II_0001.rad": "Runnable Engine seed used to preserve the exact engine control layout.",
+  "example_h305_sled_0000.rad": "Starter example used as a reference for block formatting and organization.",
+  "example_h305_sled_0001.rad": "Engine example used as a reference for engine block formatting.",
+  "example_h350_sled_0000.rad": "Starter example used as a reference for solid/contact organization.",
+  "Hybrid_III_05TH_0000.rad": "Starter example used as a reference for dummy/constraint organization.",
+  "Hybrid_III_05TH_0001.rad": "Engine example used as a reference for engine controls.",
+  "example_sid2s_sled_0000.rad": "Starter example used as a reference for surface/interface blocks.",
+  "example_sid2s_sled_0001.rad": "Engine example used as a reference for run/output blocks.",
+  "SID2S_0000.rad": "Starter reference profile for SID2S model organization.",
+  "SID2S_0001.rad": "Engine reference profile for SID2S output controls."
+}

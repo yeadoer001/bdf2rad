@@ -1,0 +1,16 @@
+{
+  "type": "bdf2rad-block",
+  "name": "bsurfs",
+  "source_cards": [
+    "BSURFS"
+  ],
+  "order": 90,
+  "target_blocks": [
+    "/SURF/SEG",
+    "/GRNOD/NODE"
+  ],
+  "status": "active",
+  "official_url": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/surf_seg_starter_r.htm",
+  "template": "SURF_SEG",
+  "plugin_version": "1.0.0"
+}

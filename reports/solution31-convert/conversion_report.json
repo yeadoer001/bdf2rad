@@ -1,0 +1,665 @@
+{
+  "status": "INCOMPLETE",
+  "source": "E:\\openradioss\\input\\Solution 3-1.bdf",
+  "units": {
+    "mass": "kg",
+    "length": "mm",
+    "time": "s",
+    "force": "mN"
+  },
+  "card_counts": {
+    "NLCNTLG": 1,
+    "NLCNTL2": 1,
+    "BCTADD": 1,
+    "BCTSET": 1,
+    "DESC": 1,
+    "BGADD": 1,
+    "BGSET": 313,
+    "TSTEP1": 1,
+    "PARAM": 8,
+    "GRID": 551461,
+    "CHEXA": 9139,
+    "CPENTA": 139,
+    "CTETRA": 248363,
+    "CONM2": 14,
+    "RBE3": 14,
+    "RBE2": 51,
+    "PSOLID": 12,
+    "MAT1": 12,
+    "MATS1": 5,
+    "GRAV": 1,
+    "BSURFS": 420,
+    "BCRPARA": 420,
+    "TEMPD": 1,
+    "SPC": 1401,
+    "TIC": 548571
+  },
+  "mappings": {
+    "NLCNTLG": {
+      "count": 1,
+      "status": "PARSED_NOT_MAPPED"
+    },
+    "NLCNTL2": {
+      "count": 1,
+      "status": "PARSED_NOT_MAPPED"
+    },
+    "BCTADD": {
+      "count": 1,
+      "status": "PARSED_NOT_MAPPED"
+    },
+    "BCTSET": {
+      "count": 1,
+      "status": "PARSED_NOT_MAPPED"
+    },
+    "DESC": {
+      "count": 1,
+      "status": "PARSED_NOT_MAPPED"
+    },
+    "BGADD": {
+      "count": 1,
+      "status": "PARSED_NOT_MAPPED"
+    },
+    "BGSET": {
+      "count": 313,
+      "status": "PARSED_NOT_MAPPED"
+    },
+    "TSTEP1": {
+      "count": 1,
+      "status": "PARSED_NOT_MAPPED"
+    },
+    "PARAM": {
+      "count": 8,
+      "status": "PARSED_NOT_MAPPED"
+    },
+    "GRID": {
+      "count": 551461,
+      "status": "PARSED_NOT_MAPPED"
+    },
+    "CHEXA": {
+      "count": 9139,
+      "status": "PARSED_NOT_MAPPED"
+    },
+    "CPENTA": {
+      "count": 139,
+      "status": "PARSED_NOT_MAPPED"
+    },
+    "CTETRA": {
+      "count": 248363,
+      "status": "PARSED_NOT_MAPPED"
+    },
+    "CONM2": {
+      "count": 14,
+      "status": "PARSED_NOT_MAPPED"
+    },
+    "RBE3": {
+      "count": 14,
+      "status": "PARSED_NOT_MAPPED"
+    },
+    "RBE2": {
+      "count": 51,
+      "status": "PARSED_NOT_MAPPED"
+    },
+    "PSOLID": {
+      "count": 12,
+      "status": "PARSED_NOT_MAPPED"
+    },
+    "MAT1": {
+      "count": 12,
+      "status": "PARSED_NOT_MAPPED"
+    },
+    "MATS1": {
+      "count": 5,
+      "status": "PARSED_NOT_MAPPED"
+    },
+    "GRAV": {
+      "count": 1,
+      "status": "PARSED_NOT_MAPPED"
+    },
+    "BSURFS": {
+      "count": 420,
+      "status": "PARSED_NOT_MAPPED"
+    },
+    "BCRPARA": {
+      "count": 420,
+      "status": "PARSED_NOT_MAPPED"
+    },
+    "TEMPD": {
+      "count": 1,
+      "status": "PARSED_NOT_MAPPED"
+    },
+    "SPC": {
+      "count": 1401,
+      "status": "PARSED_NOT_MAPPED"
+    },
+    "TIC": {
+      "count": 548571,
+      "status": "PARSED_NOT_MAPPED"
+    }
+  },
+  "approximations": [
+    {
+      "source": "CPENTA15",
+      "target": "PENTA6",
+      "count": 139,
+      "confidence": "APPROXIMATE",
+      "reason": "explicit compatibility fallback",
+      "status": "PROPOSED_NOT_APPLIED"
+    }
+  ],
+  "unsupported": [
+    {
+      "card": "NLCNTLG",
+      "count": 1,
+      "reason": "Explicit semantic mapping or target verification not implemented"
+    },
+    {
+      "card": "NLCNTL2",
+      "count": 1,
+      "reason": "Explicit semantic mapping or target verification not implemented"
+    },
+    {
+      "card": "BCTADD",
+      "count": 1,
+      "reason": "Explicit semantic mapping or target verification not implemented"
+    },
+    {
+      "card": "BCTSET",
+      "count": 1,
+      "reason": "Explicit semantic mapping or target verification not implemented"
+    },
+    {
+      "card": "BGADD",
+      "count": 1,
+      "reason": "Explicit semantic mapping or target verification not implemented"
+    },
+    {
+      "card": "BGSET",
+      "count": 313,
+      "reason": "Explicit semantic mapping or target verification not implemented"
+    },
+    {
+      "card": "TSTEP1",
+      "count": 1,
+      "reason": "Explicit semantic mapping or target verification not implemented"
+    },
+    {
+      "card": "PARAM",
+      "count": 8,
+      "reason": "Explicit semantic mapping or target verification not implemented"
+    },
+    {
+      "card": "CHEXA",
+      "count": 9139,
+      "reason": "Explicit semantic mapping or target verification not implemented"
+    },
+    {
+      "card": "CPENTA",
+      "count": 139,
+      "reason": "Explicit semantic mapping or target verification not implemented"
+    },
+    {
+      "card": "CTETRA",
+      "count": 248363,
+      "reason": "Explicit semantic mapping or target verification not implemented"
+    },
+    {
+      "card": "CONM2",
+      "count": 14,
+      "reason": "Explicit semantic mapping or target verification not implemented"
+    },
+    {
+      "card": "RBE3",
+      "count": 14,
+      "reason": "Explicit semantic mapping or target verification not implemented"
+    },
+    {
+      "card": "RBE2",
+      "count": 51,
+      "reason": "Explicit semantic mapping or target verification not implemented"
+    },
+    {
+      "card": "PSOLID",
+      "count": 12,
+      "reason": "Explicit semantic mapping or target verification not implemented"
+    },
+    {
+      "card": "MAT1",
+      "count": 12,
+      "reason": "Explicit semantic mapping or target verification not implemented"
+    },
+    {
+      "card": "MATS1",
+      "count": 5,
+      "reason": "Explicit semantic mapping or target verification not implemented"
+    },
+    {
+      "card": "GRAV",
+      "count": 1,
+      "reason": "Explicit semantic mapping or target verification not implemented"
+    },
+    {
+      "card": "BSURFS",
+      "count": 420,
+      "reason": "Explicit semantic mapping or target verification not implemented"
+    },
+    {
+      "card": "BCRPARA",
+      "count": 420,
+      "reason": "Explicit semantic mapping or target verification not implemented"
+    },
+    {
+      "card": "TEMPD",
+      "count": 1,
+      "reason": "Explicit semantic mapping or target verification not implemented"
+    },
+    {
+      "card": "SPC",
+      "count": 1401,
+      "reason": "Explicit semantic mapping or target verification not implemented"
+    },
+    {
+      "card": "TIC",
+      "count": 548571,
+      "reason": "Explicit semantic mapping or target verification not implemented"
+    }
+  ],
+  "warnings": [
+    "Explicit mapping and solver verification incomplete; runnable publication blocked",
+    "THERMAL_FIELD_PRESENT_BUT_NO_TEMPERATURE_EVOLUTION",
+    "SOURCE_SOL402_CONTROLS_NOT_TRANSFERRED_TO_EXPLICIT"
+  ],
+  "mass_check": {
+    "status": "NOT_VERIFIED",
+    "source_concentrated_mass": 0.16700000000000004
+  },
+  "reference_check": {
+    "issues": []
+  },
+  "contact_check": {},
+  "starter": {
+    "status": "NOT_RUN"
+  },
+  "engine": {
+    "status": "NOT_RUN"
+  },
+  "model_counts": {
+    "nodes": 551461,
+    "solid_elements": 257641,
+    "properties": 12,
+    "materials": 12,
+    "plasticity": 5,
+    "masses": 14,
+    "rbe2": 51,
+    "rbe3": 14,
+    "boundary_conditions": 1401,
+    "initial_conditions": 548571
+  },
+  "metadata": {
+    "case_control": {
+      "solution": 402,
+      "global": {
+        "ECHO": {
+          "value": "NONE",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 63
+          }
+        },
+        "TEMP(INIT)": {
+          "value": "2",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 64
+          }
+        },
+        "LOAD": {
+          "value": "1",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 65
+          }
+        },
+        "BCSET": {
+          "value": "400",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 66
+          }
+        },
+        "BGSET": {
+          "value": "400",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 67
+          }
+        },
+        "NLCNTL": {
+          "value": "400",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 68
+          }
+        },
+        "DISPLACEMENT(PLOT,REAL)": {
+          "value": "ALL",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 69
+          }
+        },
+        "ELSTRN(PLOT,FIBER,CENTER)": {
+          "value": "ALL",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 70
+          }
+        },
+        "GSTRESS(PLOT)": {
+          "value": "ALL",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 71
+          }
+        },
+        "STRAIN(PLOT,REAL,VONMISES,FIBER,CENTER)": {
+          "value": "ALL",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 72
+          }
+        },
+        "STRESS(PLOT,REAL,VONMISES,CENTER)": {
+          "value": "ALL",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 73
+          }
+        }
+      },
+      "subcases": {
+        "1": {
+          "LABEL": {
+            "value": "Subcase - Nonlinear Dynamics 1",
+            "source": {
+              "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+              "line": 76
+            }
+          },
+          "SPC": {
+            "value": "317",
+            "source": {
+              "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+              "line": 77
+            }
+          },
+          "IC": {
+            "value": "401",
+            "source": {
+              "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+              "line": 78
+            }
+          },
+          "NLCNTL": {
+            "value": "400",
+            "source": {
+              "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+              "line": 79
+            }
+          },
+          "TSTEP": {
+            "value": "401",
+            "source": {
+              "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+              "line": 80
+            }
+          },
+          "DISPLACEMENT(PLOT,REAL)": {
+            "value": "ALL",
+            "source": {
+              "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+              "line": 81
+            }
+          },
+          "ELSTRN(PLOT,FIBER,CENTER)": {
+            "value": "ALL",
+            "source": {
+              "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+              "line": 82
+            }
+          },
+          "GSTRESS(PLOT)": {
+            "value": "ALL",
+            "source": {
+              "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+              "line": 83
+            }
+          },
+          "STRAIN(PLOT,REAL,VONMISES,FIBER,CENTER)": {
+            "value": "ALL",
+            "source": {
+              "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+              "line": 84
+            }
+          },
+          "STRESS(PLOT,REAL,VONMISES,CENTER)": {
+            "value": "ALL",
+            "source": {
+              "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+              "line": 85
+            }
+          },
+          "ANALYSIS": {
+            "value": "DYNAMICS",
+            "source": {
+              "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+              "line": 86
+            }
+          },
+          "SEQDEP": {
+            "value": "YES",
+            "source": {
+              "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+              "line": 87
+            }
+          }
+        }
+      },
+      "effective_subcases": {
+        "1": {
+          "ECHO": {
+            "value": "NONE",
+            "source": {
+              "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+              "line": 63
+            }
+          },
+          "TEMP(INIT)": {
+            "value": "2",
+            "source": {
+              "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+              "line": 64
+            }
+          },
+          "LOAD": {
+            "value": "1",
+            "source": {
+              "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+              "line": 65
+            }
+          },
+          "BCSET": {
+            "value": "400",
+            "source": {
+              "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+              "line": 66
+            }
+          },
+          "BGSET": {
+            "value": "400",
+            "source": {
+              "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+              "line": 67
+            }
+          },
+          "NLCNTL": {
+            "value": "400",
+            "source": {
+              "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+              "line": 79
+            }
+          },
+          "DISPLACEMENT(PLOT,REAL)": {
+            "value": "ALL",
+            "source": {
+              "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+              "line": 81
+            }
+          },
+          "ELSTRN(PLOT,FIBER,CENTER)": {
+            "value": "ALL",
+            "source": {
+              "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+              "line": 82
+            }
+          },
+          "GSTRESS(PLOT)": {
+            "value": "ALL",
+            "source": {
+              "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+              "line": 83
+            }
+          },
+          "STRAIN(PLOT,REAL,VONMISES,FIBER,CENTER)": {
+            "value": "ALL",
+            "source": {
+              "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+              "line": 84
+            }
+          },
+          "STRESS(PLOT,REAL,VONMISES,CENTER)": {
+            "value": "ALL",
+            "source": {
+              "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+              "line": 85
+            }
+          },
+          "LABEL": {
+            "value": "Subcase - Nonlinear Dynamics 1",
+            "source": {
+              "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+              "line": 76
+            }
+          },
+          "SPC": {
+            "value": "317",
+            "source": {
+              "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+              "line": 77
+            }
+          },
+          "IC": {
+            "value": "401",
+            "source": {
+              "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+              "line": 78
+            }
+          },
+          "TSTEP": {
+            "value": "401",
+            "source": {
+              "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+              "line": 80
+            }
+          },
+          "ANALYSIS": {
+            "value": "DYNAMICS",
+            "source": {
+              "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+              "line": 86
+            }
+          },
+          "SEQDEP": {
+            "value": "YES",
+            "source": {
+              "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+              "line": 87
+            }
+          }
+        }
+      },
+      "diagnostics": []
+    },
+    "control_lines": [
+      "NASTRAN SYSTEM(674)=1",
+      "ID,NASTRAN,Solution 3-1",
+      "SOL 402",
+      "CEND",
+      "ECHO = NONE",
+      "TEMP(INIT) = 2",
+      "LOAD = 1",
+      "BCSET = 400",
+      "BGSET = 400",
+      "NLCNTL = 400",
+      "DISPLACEMENT(PLOT,REAL) = ALL",
+      "ELSTRN(PLOT,FIBER,CENTER) = ALL",
+      "GSTRESS(PLOT) = ALL",
+      "STRAIN(PLOT,REAL,VONMISES,FIBER,CENTER) = ALL",
+      "STRESS(PLOT,REAL,VONMISES,CENTER) = ALL",
+      "SUBCASE 1",
+      "  LABEL = Subcase - Nonlinear Dynamics 1",
+      "  SPC = 317",
+      "  IC = 401",
+      "  NLCNTL = 400",
+      "  TSTEP = 401",
+      "  DISPLACEMENT(PLOT,REAL) = ALL",
+      "  ELSTRN(PLOT,FIBER,CENTER) = ALL",
+      "  GSTRESS(PLOT) = ALL",
+      "  STRAIN(PLOT,REAL,VONMISES,FIBER,CENTER) = ALL",
+      "  STRESS(PLOT,REAL,VONMISES,CENTER) = ALL",
+      "  ANALYSIS = DYNAMICS",
+      "  SEQDEP = YES",
+      "BEGIN BULK",
+      "ENDDATA abd490b7"
+    ],
+    "source_file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+    "encoding": "gb18030",
+    "source_implicit_controls": {
+      "NLCNTLG": [
+        {
+          "raw": [
+            "INLY",
+            "1",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        }
+      ],
+      "NLCNTL2": [
+        {
+          "raw": [
+            "400",
+            "DTINIT",
+            "1.0000-7",
+            "ILNS",
+            "3",
+            "PRDR",
+            "0.010000",
+            "",
+            "REFP",
+            "1000.00",
+            "RHOINF",
+            "1.0000-6",
+            "",
+            "",
+            "",
+            ""
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "PROP_SOLID",
+  "lines": [
+    "/PROP/SOLID/{{ID}}",
+    "{{TITLE}}",
+    "#   Isolid    Ismstr     Iale    Icpre Itetra10     Inpts  Itetra4    Iframe        dn",
+    "{{ISOLID}}{{ISMSTR}}{{IALE}}{{ICPRE}}{{ITETRA10}}{{INPTS}}{{ITETRA4}}{{IFRAME}}{{DN}}",
+    "#                q_a                 q_b                   h            LAMBDA_V                MU_V",
+    "{{QA}}{{QB}}{{H}}{{LAMBDA_V}}{{MU_V}}",
+    "#             dt_min                Vdef_min                Vdef_max                 APS_max                COL_min",
+    "{{DTMIN}}{{VDEFMIN}}{{VDEFMAX}}{{APSMAX}}{{COLMIN}}",
+    "#       Ndir   sphpart_ID  Icontrol",
+    "{{NDIR}}{{SPHPART}}{{ICONTROL}}"
+  ],
+  "official_url": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/prop_type14_solid_starter_r.htm"
+}

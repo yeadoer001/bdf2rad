@@ -1,0 +1,27 @@
+{
+  "source": "C:\\Users\\dongcr1\\.codex\\attachments\\a65e88ed-6ad3-4880-85d0-73253e6815db\\\u5df2\u7c98\u8d34\u7684\u6587\u672c.txt",
+  "starter_warning_ids": [
+    1114
+  ],
+  "engine_started": true,
+  "engine_normal_termination": true,
+  "total_cycles": 1,
+  "last_printed_progress": {
+    "cycle": 0,
+    "time": 0.0,
+    "dt": 1000000.0
+  },
+  "simulation_status": "FAILED",
+  "physics_equivalent": false,
+  "issues": [
+    {
+      "code": "NO_PART",
+      "message": "Starter has no defined Part; full FE model is absent."
+    },
+    {
+      "code": "EMPTY_MODEL_RUN",
+      "message": "At most one cycle with no Part is not a structural simulation."
+    }
+  ],
+  "note": "Printed progress may omit final time. Result file creation and normal exit do not prove physical validity."
+}

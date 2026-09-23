@@ -1,0 +1,9 @@
+$ kg / mm / s; bulk-only, unstressed free tetra syntax benchmark.
+GRID,1,,0,0,0
+GRID,2,,10,0,0
+GRID,3,,0,10,0
+GRID,4,,0,0,10
+CTETRA,1,1,1,2,3,4
+PSOLID,1,1
+MAT1,1,2.1+8,,.3,7.8-6
+ENDDATA

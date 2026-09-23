@@ -1,0 +1,15 @@
+{
+  "type": "bdf2rad-block",
+  "name": "tstep1",
+  "source_cards": [
+    "TSTEP1"
+  ],
+  "order": 910,
+  "target_blocks": [
+    "/RUN"
+  ],
+  "status": "active",
+  "official_url": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/run_engine_r.htm",
+  "template": "RUN",
+  "plugin_version": "1.0.0"
+}

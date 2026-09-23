@@ -1,0 +1,15 @@
+{
+  "type": "bdf2rad-block",
+  "name": "bgset",
+  "source_cards": [
+    "BGSET"
+  ],
+  "order": 92,
+  "target_blocks": [
+    "/INTER/TYPE2"
+  ],
+  "status": "audit-only",
+  "official_url": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/inter_type2_starter_r.htm",
+  "template": null,
+  "plugin_version": "1.0.0"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "bdf2rad-block",
+  "name": "nlcntl",
+  "source_cards": [
+    "NLCNTL"
+  ],
+  "order": 920,
+  "target_blocks": [],
+  "status": "audit-only",
+  "official_url": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/starter_input_r.htm",
+  "plugin_version": "1.0.0"
+}

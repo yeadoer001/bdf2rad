@@ -1,0 +1,13 @@
+{
+  "name": "INIVEL_TRA",
+  "lines": [
+    "/GRNOD/NODE/{{GRID}}",
+    "IC_VELOCITY_{{DOF}}",
+    "{{NODE_ROWS}}",
+    "/INIVEL/TRA/{{ID}}",
+    "Initial velocity DOF {{DOF}}",
+    "{{VX}}{{VY}}{{VZ}}{{GRND}}{{SKEW}}",
+    "{{TSTART}}{{SENS}}"
+  ],
+  "official_url": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/inivel_starter_r.htm"
+}

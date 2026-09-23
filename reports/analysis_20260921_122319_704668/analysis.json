@@ -1,0 +1,3915 @@
+{
+  "status": "ANALYZED_NOT_CONVERTED",
+  "source": "E:\\openradioss\\input\\Solution 3-1.bdf",
+  "encoding": "gb18030",
+  "counts": {
+    "NLCNTLG": 1,
+    "NLCNTL2": 1,
+    "BCTADD": 1,
+    "BCTSET": 1,
+    "DESC": 1,
+    "BGADD": 1,
+    "BGSET": 313,
+    "TSTEP1": 1,
+    "PARAM": 8,
+    "GRID": 551461,
+    "CHEXA": 9139,
+    "CPENTA": 139,
+    "CTETRA": 248363,
+    "CONM2": 14,
+    "RBE3": 14,
+    "RBE2": 51,
+    "PSOLID": 12,
+    "MAT1": 12,
+    "MATS1": 5,
+    "GRAV": 1,
+    "BSURFS": 420,
+    "BCRPARA": 420,
+    "TEMPD": 1,
+    "SPC": 1401,
+    "TIC": 548571
+  },
+  "element_orders": {
+    "CHEXA20": 7935,
+    "CPENTA15": 139,
+    "CTETRA10": 248363,
+    "CHEXA8": 1204
+  },
+  "case_control": {
+    "solution": 402,
+    "global": {
+      "ECHO": {
+        "value": "NONE",
+        "source": {
+          "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+          "line": 63
+        }
+      },
+      "TEMP(INIT)": {
+        "value": "2",
+        "source": {
+          "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+          "line": 64
+        }
+      },
+      "LOAD": {
+        "value": "1",
+        "source": {
+          "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+          "line": 65
+        }
+      },
+      "BCSET": {
+        "value": "400",
+        "source": {
+          "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+          "line": 66
+        }
+      },
+      "BGSET": {
+        "value": "400",
+        "source": {
+          "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+          "line": 67
+        }
+      },
+      "NLCNTL": {
+        "value": "400",
+        "source": {
+          "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+          "line": 68
+        }
+      },
+      "DISPLACEMENT(PLOT,REAL)": {
+        "value": "ALL",
+        "source": {
+          "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+          "line": 69
+        }
+      },
+      "ELSTRN(PLOT,FIBER,CENTER)": {
+        "value": "ALL",
+        "source": {
+          "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+          "line": 70
+        }
+      },
+      "GSTRESS(PLOT)": {
+        "value": "ALL",
+        "source": {
+          "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+          "line": 71
+        }
+      },
+      "STRAIN(PLOT,REAL,VONMISES,FIBER,CENTER)": {
+        "value": "ALL",
+        "source": {
+          "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+          "line": 72
+        }
+      },
+      "STRESS(PLOT,REAL,VONMISES,CENTER)": {
+        "value": "ALL",
+        "source": {
+          "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+          "line": 73
+        }
+      }
+    },
+    "subcases": {
+      "1": {
+        "LABEL": {
+          "value": "Subcase - Nonlinear Dynamics 1",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 76
+          }
+        },
+        "SPC": {
+          "value": "317",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 77
+          }
+        },
+        "IC": {
+          "value": "401",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 78
+          }
+        },
+        "NLCNTL": {
+          "value": "400",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 79
+          }
+        },
+        "TSTEP": {
+          "value": "401",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 80
+          }
+        },
+        "DISPLACEMENT(PLOT,REAL)": {
+          "value": "ALL",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 81
+          }
+        },
+        "ELSTRN(PLOT,FIBER,CENTER)": {
+          "value": "ALL",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 82
+          }
+        },
+        "GSTRESS(PLOT)": {
+          "value": "ALL",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 83
+          }
+        },
+        "STRAIN(PLOT,REAL,VONMISES,FIBER,CENTER)": {
+          "value": "ALL",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 84
+          }
+        },
+        "STRESS(PLOT,REAL,VONMISES,CENTER)": {
+          "value": "ALL",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 85
+          }
+        },
+        "ANALYSIS": {
+          "value": "DYNAMICS",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 86
+          }
+        },
+        "SEQDEP": {
+          "value": "YES",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 87
+          }
+        }
+      }
+    },
+    "effective_subcases": {
+      "1": {
+        "ECHO": {
+          "value": "NONE",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 63
+          }
+        },
+        "TEMP(INIT)": {
+          "value": "2",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 64
+          }
+        },
+        "LOAD": {
+          "value": "1",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 65
+          }
+        },
+        "BCSET": {
+          "value": "400",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 66
+          }
+        },
+        "BGSET": {
+          "value": "400",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 67
+          }
+        },
+        "NLCNTL": {
+          "value": "400",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 79
+          }
+        },
+        "DISPLACEMENT(PLOT,REAL)": {
+          "value": "ALL",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 81
+          }
+        },
+        "ELSTRN(PLOT,FIBER,CENTER)": {
+          "value": "ALL",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 82
+          }
+        },
+        "GSTRESS(PLOT)": {
+          "value": "ALL",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 83
+          }
+        },
+        "STRAIN(PLOT,REAL,VONMISES,FIBER,CENTER)": {
+          "value": "ALL",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 84
+          }
+        },
+        "STRESS(PLOT,REAL,VONMISES,CENTER)": {
+          "value": "ALL",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 85
+          }
+        },
+        "LABEL": {
+          "value": "Subcase - Nonlinear Dynamics 1",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 76
+          }
+        },
+        "SPC": {
+          "value": "317",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 77
+          }
+        },
+        "IC": {
+          "value": "401",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 78
+          }
+        },
+        "TSTEP": {
+          "value": "401",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 80
+          }
+        },
+        "ANALYSIS": {
+          "value": "DYNAMICS",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 86
+          }
+        },
+        "SEQDEP": {
+          "value": "YES",
+          "source": {
+            "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+            "line": 87
+          }
+        }
+      }
+    },
+    "diagnostics": []
+  },
+  "selected_definitions": {
+    "1": {
+      "SPC": {
+        "id": 317,
+        "definitions": [
+          {
+            "card": "SPC",
+            "id": 317,
+            "status": "FOUND_NOT_MAPPED"
+          }
+        ]
+      },
+      "LOAD": {
+        "id": 1,
+        "definitions": [
+          {
+            "card": "GRAV",
+            "id": 1,
+            "status": "FOUND_NOT_MAPPED"
+          }
+        ]
+      },
+      "IC": {
+        "id": 401,
+        "definitions": [
+          {
+            "card": "TIC",
+            "id": 401,
+            "status": "FOUND_NOT_MAPPED"
+          }
+        ]
+      },
+      "BCSET": {
+        "id": 400,
+        "definitions": [
+          {
+            "card": "BCTADD",
+            "id": 400,
+            "children": [
+              {
+                "id": 401,
+                "definitions": [
+                  {
+                    "card": "BCTSET",
+                    "id": 401,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "BGSET": {
+        "id": 400,
+        "definitions": [
+          {
+            "card": "BGADD",
+            "id": 400,
+            "children": [
+              {
+                "id": 401,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 401,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 402,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 402,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 403,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 403,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 404,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 404,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 405,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 405,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 406,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 406,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 407,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 407,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 408,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 408,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 409,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 409,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 410,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 410,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 411,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 411,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 412,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 412,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 413,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 413,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 414,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 414,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 415,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 415,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 416,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 416,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 417,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 417,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 418,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 418,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 419,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 419,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 420,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 420,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 421,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 421,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 422,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 422,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 423,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 423,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 424,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 424,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 425,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 425,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 426,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 426,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 427,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 427,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 428,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 428,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 429,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 429,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 430,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 430,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 431,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 431,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 432,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 432,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 433,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 433,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 434,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 434,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 435,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 435,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 436,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 436,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 437,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 437,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 438,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 438,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 439,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 439,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 440,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 440,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 441,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 441,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 442,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 442,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 443,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 443,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 444,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 444,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 445,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 445,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 446,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 446,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 447,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 447,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 448,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 448,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 449,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 449,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 450,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 450,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 451,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 451,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 452,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 452,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 453,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 453,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 454,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 454,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 455,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 455,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 456,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 456,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 457,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 457,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 458,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 458,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 459,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 459,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 460,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 460,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 461,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 461,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 462,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 462,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 463,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 463,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 464,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 464,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 465,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 465,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 466,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 466,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 467,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 467,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 468,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 468,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 469,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 469,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 470,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 470,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 471,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 471,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 472,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 472,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 473,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 473,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 474,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 474,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 475,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 475,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 476,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 476,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 477,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 477,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 478,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 478,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 479,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 479,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 480,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 480,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 481,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 481,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 482,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 482,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 483,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 483,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 484,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 484,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 485,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 485,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 486,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 486,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 487,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 487,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 488,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 488,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 489,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 489,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 490,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 490,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 491,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 491,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 492,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 492,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 493,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 493,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 494,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 494,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 495,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 495,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 496,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 496,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 497,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 497,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 498,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 498,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 499,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 499,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 500,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 500,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 501,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 501,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 502,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 502,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 503,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 503,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 504,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 504,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 505,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 505,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 506,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 506,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 507,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 507,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 508,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 508,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 509,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 509,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 510,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 510,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 511,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 511,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 512,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 512,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 513,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 513,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 514,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 514,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 515,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 515,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 516,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 516,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 517,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 517,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 518,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 518,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 519,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 519,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 520,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 520,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 521,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 521,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 522,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 522,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 523,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 523,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 524,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 524,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 525,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 525,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 526,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 526,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 527,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 527,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 528,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 528,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 529,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 529,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 530,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 530,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 531,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 531,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 532,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 532,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 533,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 533,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 534,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 534,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 535,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 535,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 536,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 536,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 537,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 537,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 538,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 538,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 539,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 539,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 540,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 540,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 541,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 541,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 542,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 542,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 543,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 543,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 544,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 544,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 545,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 545,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 546,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 546,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 547,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 547,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 548,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 548,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 549,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 549,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 550,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 550,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 551,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 551,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 552,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 552,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 553,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 553,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 554,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 554,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 555,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 555,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 556,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 556,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 557,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 557,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 558,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 558,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 559,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 559,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 560,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 560,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 561,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 561,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 562,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 562,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 563,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 563,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 564,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 564,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 565,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 565,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 566,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 566,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 567,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 567,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 568,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 568,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 569,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 569,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 570,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 570,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 571,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 571,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 572,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 572,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 573,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 573,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 574,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 574,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 575,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 575,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 576,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 576,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 577,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 577,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 578,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 578,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 579,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 579,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 580,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 580,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 581,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 581,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 582,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 582,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 583,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 583,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 584,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 584,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 585,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 585,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 586,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 586,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 587,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 587,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 588,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 588,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 589,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 589,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 590,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 590,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 591,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 591,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 592,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 592,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 593,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 593,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 594,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 594,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 595,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 595,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 596,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 596,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 597,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 597,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 598,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 598,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 599,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 599,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 600,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 600,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 601,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 601,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 602,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 602,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 603,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 603,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 604,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 604,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 605,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 605,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 606,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 606,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 607,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 607,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 608,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 608,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 609,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 609,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 610,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 610,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 611,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 611,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 612,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 612,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 613,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 613,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 614,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 614,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 615,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 615,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 616,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 616,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 617,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 617,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 618,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 618,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 619,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 619,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 620,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 620,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 621,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 621,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 622,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 622,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 623,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 623,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 624,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 624,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 625,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 625,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 626,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 626,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 627,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 627,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 628,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 628,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 629,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 629,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 630,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 630,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 631,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 631,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 632,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 632,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 633,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 633,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 634,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 634,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 635,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 635,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 636,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 636,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 637,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 637,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 638,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 638,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 639,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 639,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 640,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 640,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 641,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 641,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 642,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 642,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 643,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 643,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 644,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 644,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 645,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 645,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 646,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 646,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 647,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 647,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 648,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 648,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 649,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 649,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 650,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 650,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 651,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 651,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 652,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 652,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 653,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 653,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 654,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 654,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 655,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 655,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 656,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 656,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 657,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 657,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 658,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 658,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 659,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 659,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 660,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 660,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 661,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 661,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 662,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 662,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 663,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 663,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 664,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 664,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 665,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 665,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 666,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 666,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 667,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 667,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 668,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 668,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 669,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 669,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 670,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 670,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 671,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 671,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 672,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 672,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 673,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 673,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 674,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 674,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 675,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 675,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 676,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 676,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 677,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 677,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 678,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 678,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 679,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 679,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 680,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 680,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 681,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 681,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 682,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 682,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 683,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 683,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 684,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 684,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 685,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 685,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 686,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 686,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 687,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 687,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 688,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 688,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 689,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 689,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 690,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 690,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 691,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 691,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 692,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 692,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 693,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 693,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 694,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 694,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 695,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 695,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 696,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 696,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 697,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 697,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 698,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 698,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 699,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 699,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 700,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 700,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 701,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 701,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 702,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 702,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 703,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 703,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 704,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 704,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 705,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 705,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 706,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 706,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 707,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 707,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 708,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 708,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 709,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 709,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 710,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 710,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 711,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 711,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 712,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 712,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              },
+              {
+                "id": 713,
+                "definitions": [
+                  {
+                    "card": "BGSET",
+                    "id": 713,
+                    "status": "FOUND_NOT_MAPPED"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "TSTEP": {
+        "id": 401,
+        "definitions": [
+          {
+            "card": "TSTEP1",
+            "id": 401,
+            "status": "FOUND_NOT_MAPPED"
+          }
+        ]
+      },
+      "NLCNTL": {
+        "id": 400,
+        "definitions": [
+          {
+            "card": "NLCNTL2",
+            "id": 400,
+            "status": "FOUND_NOT_MAPPED"
+          }
+        ]
+      },
+      "TEMP(INIT)": {
+        "id": 2,
+        "definitions": [
+          {
+            "card": "TEMPD",
+            "id": 2,
+            "status": "FOUND_NOT_MAPPED"
+          }
+        ]
+      }
+    }
+  },
+  "nonlinear_and_time_controls": [
+    {
+      "name": "NLCNTLG",
+      "fields": [
+        "INLY",
+        "1",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "source": {
+        "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+        "line": 100
+      },
+      "raw": [
+        "NLCNTLG     INLY       1"
+      ],
+      "line_numbers": [
+        100
+      ],
+      "format": "small",
+      "continuation": [],
+      "original_name": "NLCNTLG",
+      "mapping_status": "REQUIRES_VALIDATION"
+    },
+    {
+      "name": "NLCNTL2",
+      "fields": [
+        "400",
+        "DTINIT",
+        "1.0000-7",
+        "ILNS",
+        "3",
+        "PRDR",
+        "0.010000",
+        "",
+        "REFP",
+        "1000.00",
+        "RHOINF",
+        "1.0000-6",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "source": {
+        "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+        "line": 102
+      },
+      "raw": [
+        "NLCNTL2      400  DTINIT1.0000-7    ILNS       3    PRDR0.010000        +",
+        "+           REFP 1000.00  RHOINF1.0000-6"
+      ],
+      "line_numbers": [
+        102,
+        103
+      ],
+      "format": "small",
+      "continuation": [
+        "+"
+      ],
+      "original_name": "NLCNTL2",
+      "mapping_status": "REQUIRES_VALIDATION"
+    },
+    {
+      "name": "TSTEP1",
+      "fields": [
+        "401",
+        "3.0000000000E-03",
+        "90",
+        "YES",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "source": {
+        "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+        "line": 774
+      },
+      "raw": [
+        "TSTEP1*              4013.0000000000E-03              90             YES+",
+        "*"
+      ],
+      "line_numbers": [
+        774,
+        775
+      ],
+      "format": "large",
+      "continuation": [
+        "*"
+      ],
+      "original_name": "TSTEP1*",
+      "mapping_status": "REQUIRES_VALIDATION",
+      "end_time_candidate": 0.003
+    }
+  ],
+  "diagnostics": [],
+  "mapping_blockers": [
+    {
+      "card": "NLCNTLG",
+      "count": 1,
+      "first_source": {
+        "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+        "line": 100
+      },
+      "status": "REQUIRES_VALIDATION",
+      "reason": "Implicit SOL 402 control is not equivalent to explicit controls."
+    },
+    {
+      "card": "NLCNTL2",
+      "count": 1,
+      "first_source": {
+        "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+        "line": 102
+      },
+      "status": "REQUIRES_VALIDATION",
+      "reason": "Implicit nonlinear integration controls require explicit-case design."
+    },
+    {
+      "card": "BCTADD",
+      "count": 1,
+      "first_source": {
+        "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+        "line": 104
+      },
+      "status": "UNSUPPORTED",
+      "reason": "Resolve selected contact set union."
+    },
+    {
+      "card": "BCTSET",
+      "count": 1,
+      "first_source": {
+        "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+        "line": 106
+      },
+      "status": "UNSUPPORTED",
+      "reason": "Contact surface, gap, friction and active BCSET selection require mapping."
+    },
+    {
+      "card": "DESC",
+      "count": 1,
+      "first_source": {
+        "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+        "line": 107
+      },
+      "status": "UNSUPPORTED",
+      "reason": "Description metadata retained."
+    },
+    {
+      "card": "BGADD",
+      "count": 1,
+      "first_source": {
+        "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+        "line": 108
+      },
+      "status": "UNSUPPORTED",
+      "reason": "Resolve selected glue set union."
+    },
+    {
+      "card": "BGSET",
+      "count": 313,
+      "first_source": {
+        "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+        "line": 149
+      },
+      "status": "UNSUPPORTED",
+      "reason": "Gluing search tolerance and tie semantics require validated native interface mapping."
+    },
+    {
+      "card": "TSTEP1",
+      "count": 1,
+      "first_source": {
+        "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+        "line": 774
+      },
+      "status": "REQUIRES_VALIDATION",
+      "reason": "SOL 402 step timing is not a direct explicit timestep parameter."
+    },
+    {
+      "card": "PARAM",
+      "count": 8,
+      "first_source": {
+        "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+        "line": 779
+      },
+      "status": "UNSUPPORTED",
+      "reason": "Solver parameters need individual disposition."
+    },
+    {
+      "card": "GRID",
+      "count": 551461,
+      "first_source": {
+        "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+        "line": 790
+      },
+      "status": "REQUIRES_VALIDATION",
+      "reason": "Full-model semantic mapping not implemented; original preserved."
+    },
+    {
+      "card": "CHEXA",
+      "count": 9139,
+      "first_source": {
+        "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+        "line": 1103717
+      },
+      "status": "UNSUPPORTED",
+      "reason": "High-order connectivity and formulation need verified node-order mapping; no silent downgrade."
+    },
+    {
+      "card": "CPENTA",
+      "count": 139,
+      "first_source": {
+        "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+        "line": 1114361
+      },
+      "status": "UNSUPPORTED",
+      "reason": "15-node wedge present; validated native target or explicit conversion policy required."
+    },
+    {
+      "card": "CTETRA",
+      "count": 248363,
+      "first_source": {
+        "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+        "line": 1119128
+      },
+      "status": "UNSUPPORTED",
+      "reason": "TETRA10 native syntax exists; node order/formulation and regression evidence still required."
+    },
+    {
+      "card": "CONM2",
+      "count": 14,
+      "first_source": {
+        "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+        "line": 1577275
+      },
+      "status": "UNSUPPORTED",
+      "reason": "Mass, offset and full inertia tensor require mapping."
+    },
+    {
+      "card": "RBE3",
+      "count": 14,
+      "first_source": {
+        "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+        "line": 1577331
+      },
+      "status": "UNSUPPORTED",
+      "reason": "Weighted interpolation must not be replaced by an unverified rigid body."
+    },
+    {
+      "card": "RBE2",
+      "count": 51,
+      "first_source": {
+        "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+        "line": 1625191
+      },
+      "status": "UNSUPPORTED",
+      "reason": "Rigid constraints and dependent DOF require conflict checking."
+    },
+    {
+      "card": "PSOLID",
+      "count": 12,
+      "first_source": {
+        "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+        "line": 1628029
+      },
+      "status": "UNSUPPORTED",
+      "reason": "Target solid property/formulation mapping not implemented."
+    },
+    {
+      "card": "MAT1",
+      "count": 12,
+      "first_source": {
+        "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+        "line": 1628056
+      },
+      "status": "UNSUPPORTED",
+      "reason": "Thermal expansion and elastic constants require unit-aware material mapping."
+    },
+    {
+      "card": "MATS1",
+      "count": 5,
+      "first_source": {
+        "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+        "line": 1628059
+      },
+      "status": "UNSUPPORTED",
+      "reason": "Plastic hardening definition must be mapped together with MAT1; elastic replacement forbidden."
+    },
+    {
+      "card": "GRAV",
+      "count": 1,
+      "first_source": {
+        "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+        "line": 1628088
+      },
+      "status": "UNSUPPORTED",
+      "reason": "Active load direction and magnitude require function/group mapping."
+    },
+    {
+      "card": "BSURFS",
+      "count": 420,
+      "first_source": {
+        "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+        "line": 1628090
+      },
+      "status": "UNSUPPORTED",
+      "reason": "Element faces defined by three nodes require topology-aware surface extraction."
+    },
+    {
+      "card": "BCRPARA",
+      "count": 420,
+      "first_source": {
+        "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+        "line": 1628332
+      },
+      "status": "UNSUPPORTED",
+      "reason": "Surface rigidity/offset semantics require validation."
+    },
+    {
+      "card": "TEMPD",
+      "count": 1,
+      "first_source": {
+        "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+        "line": 1653792
+      },
+      "status": "UNSUPPORTED",
+      "reason": "Initial temperature and thermal expansion must be considered."
+    },
+    {
+      "card": "SPC",
+      "count": 1401,
+      "first_source": {
+        "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+        "line": 1653794
+      },
+      "status": "UNSUPPORTED",
+      "reason": "Selected constraints require DOF mapping and conflict checking."
+    },
+    {
+      "card": "TIC",
+      "count": 548571,
+      "first_source": {
+        "file": "E:\\openradioss\\input\\Solution 3-1.bdf",
+        "line": 1655196
+      },
+      "status": "UNSUPPORTED",
+      "reason": "Selected initial velocity/displacement and local DOF require mapping."
+    }
+  ],
+  "conversion_success": false,
+  "solver_launch_allowed": false,
+  "termination_time": null,
+  "note": "No explicit solver time selected automatically; no executable RAD emitted."
+}

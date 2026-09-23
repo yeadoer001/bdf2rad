@@ -1,0 +1,12 @@
+{
+  "name": "BCS",
+  "lines": [
+    "/GRNOD/NODE/{{GRID}}",
+    "SPC_{{CODE}}",
+    "{{NODE_ROWS}}",
+    "/BCS/{{ID}}",
+    "SPC_{{CODE}}",
+    "{{TRAROT}}{{SKEW}}{{GRND}}"
+  ],
+  "official_url": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/bcs_starter_r.htm"
+}
