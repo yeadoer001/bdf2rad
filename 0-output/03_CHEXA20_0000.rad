@@ -66,7 +66,6 @@ PSOLID_1
 BDF_PART_1_BRICK
          1         1         0         0
 /BRICK/1
-/BRIC20/1
          1         1         2         3         4         5         6         7         8
 /GRNOD/NODE/400000/0
 SPC_111111

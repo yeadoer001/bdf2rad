@@ -6,10 +6,14 @@
   ],
   "order": 41,
   "target_blocks": [
-    "/BRIC20"
+    "/BRICK"
   ],
   "status": "active",
-  "official_url": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/element_solids_starter_r.htm",
-  "template": null,
-  "plugin_version": "1.0.0"
+  "official_url": "https://2024.help.altair.com/2024/hwdesktop/hwx/topics/conversion_between_solvers/convert_nastran_to_radioss_mapping.htm",
+  "mapping_rule": "CHEXA20 -> first-order downgrade -> /BRICK",
+  "notes": [
+    "The official Nastran-to-Radioss conversion mapping changes CHEXA20 to first order before conversion.",
+    "Only the eight corner nodes are transferred to the target /BRICK element.",
+    "Nodes 9-20 are not written to /BRICK because /BRICK has eight nodes."
+  ]
 }

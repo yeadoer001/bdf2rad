@@ -80,7 +80,7 @@
       ],
       "order": 41,
       "target_blocks": [
-        "/BRIC20"
+        "/BRICK"
       ],
       "status": "active",
       "block_dir": "D:\\BDF2RAD-X\\bdf2rad\\blocks\\CHEXA20"
@@ -335,15 +335,24 @@
       "source_pid": 1,
       "family": "BRICK",
       "status": "translated",
-      "target": "/PART/1"
+      "target": "/PART/1",
+      "element_count": 1
     },
     {
       "card": "CHEXA",
-      "order": 20,
-      "status": "downgraded_to_BRICK",
+      "source_order": 20,
+      "status": "translated_first_order",
       "target": "/BRICK/1",
       "count": 1,
-      "source_pid": 1
+      "source_pid": 1,
+      "source_nodes_per_element": 20,
+      "target_nodes_per_element": 8,
+      "source_nodes_preserved": {
+        "corner_nodes": 8,
+        "midside_nodes": 12,
+        "midside_nodes_used": false
+      },
+      "mapping_basis": "Nastran CHEXA20 -> first-order -> /BRICK"
     },
     {
       "card": "SPC",
