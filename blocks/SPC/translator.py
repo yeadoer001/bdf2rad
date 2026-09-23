@@ -2,19 +2,23 @@ from __future__ import annotations
 
 from collections import defaultdict
 
-from bdf2rad.core.plugin_helpers import emit, rb, RadBlock
+from bdf2rad.core.types import RadBlock
 
 
 def _component_to_trarot(component: str) -> str:
     """
-    Convert Nastran SPC component digits to Radioss Trarot.
+    Nastran SPC component digits:
 
-    Nastran:
-        1 2 3 4 5 6
+        1 = TX
+        2 = TY
+        3 = TZ
+        4 = RX
+        5 = RY
+        6 = RZ
 
-    Radioss:
+    Convert to Radioss Trarot:
         TX TY TZ RX RY RZ
-        represented by six 0/1 flags.
+        as six 0/1 flags.
     """
 
     text = str(component).strip()
@@ -30,8 +34,8 @@ def _component_to_trarot(component: str) -> str:
         )
 
     if any(
-        ch not in "123456"
-        for ch in text
+        char not in "123456"
+        for char in text
     ):
         raise ValueError(
             f"Invalid Nastran SPC component: {component!r}"
@@ -39,17 +43,20 @@ def _component_to_trarot(component: str) -> str:
 
     flags = ["0"] * 6
 
-    for ch in text:
-        flags[int(ch) - 1] = "1"
+    for char in text:
+        flags[int(char) - 1] = "1"
 
     return "".join(flags)
 
 
-def _fmt10(value) -> str:
-    return f"{value:>10}"
+def _format_node_rows(
+    node_ids: list[int],
+) -> list[str]:
+    """
+    OpenRadioss /GRNOD/NODE:
+    maximum 10 node IDs per line.
+    """
 
-
-def _fmt_node_rows(node_ids):
     rows = []
 
     for start in range(
@@ -63,15 +70,35 @@ def _fmt_node_rows(node_ids):
 
         rows.append(
             "".join(
-                f"{int(nid):>10d}"
-                for nid in chunk
+                f"{int(node_id):>10d}"
+                for node_id in chunk
             )
         )
 
     return rows
 
 
-def _resolve_spc_sid(model):
+def _format_bcs_data(
+    trarot: str,
+    skew_id: int,
+    grnd_id: int,
+) -> str:
+    """
+    /BCS data:
+
+        Trarot  Skew_ID  grnd_ID
+
+    Each value is written in a 10-character field.
+    """
+
+    return (
+        f"{trarot:>10s}"
+        f"{int(skew_id):>10d}"
+        f"{int(grnd_id):>10d}"
+    )
+
+
+def _resolve_spc_sid(model) -> int:
     raw_sid = (
         model.case.get(
             "SPC",
@@ -84,24 +111,26 @@ def _resolve_spc_sid(model):
         return int(raw_sid)
     except (TypeError, ValueError) as exc:
         raise ValueError(
-            f"Invalid SPC Case Control ID: "
-            f"{raw_sid!r}"
+            f"Invalid SPC Case Control ID: {raw_sid!r}"
         ) from exc
 
 
 def translate(model, ctx, plugin):
     """
-    Nastran SPC -> two independent Radioss Blocks:
+    Translate one Nastran SPC set into two independent
+    OpenRadioss Blocks:
 
         /GRNOD/NODE/grnd_ID/unit_ID
         /BCS/bcs_ID
 
     IMPORTANT:
-    These are two separate Blocks and must never be
-    embedded into a single RadBlock.
+    RadBlock.keyword contains the keyword itself.
+    RadBlock.lines contains ONLY the lines AFTER that keyword.
     """
 
-    sid = _resolve_spc_sid(model)
+    sid = _resolve_spc_sid(
+        model
+    )
 
     grouped = defaultdict(list)
 
@@ -127,7 +156,7 @@ def translate(model, ctx, plugin):
 
     for trarot, node_ids in sorted(
         grouped.items(),
-        key=lambda x: x[0],
+        key=lambda item: item[0],
     ):
 
         node_ids = sorted(
@@ -138,51 +167,55 @@ def translate(model, ctx, plugin):
             continue
 
         # --------------------------------------------------------
-        # Validate all source nodes.
+        # Validate source node IDs.
         # --------------------------------------------------------
-        missing = [
+        missing_nodes = [
             nid
             for nid in node_ids
             if nid not in model.nodes
         ]
 
-        if missing:
+        if missing_nodes:
             preview = ", ".join(
-                str(x)
-                for x in missing[:20]
+                str(nid)
+                for nid in missing_nodes[:20]
             )
 
             raise ValueError(
-                f"SPC SID={sid}, Trarot={trarot}: "
+                f"SPC SID={sid}, "
+                f"Trarot={trarot}: "
                 f"undefined node IDs: {preview}"
             )
 
         grnd_id = next_group_id
-        bcs_id = next_group_id
+        bcs_id = grnd_id
 
         # ========================================================
-        # BLOCK 1
         # /GRNOD/NODE/<grnd_ID>/<unit_ID>
+        #
+        # IMPORTANT:
+        # The keyword itself is NOT duplicated inside lines.
         # ========================================================
 
-        group_lines = [
-            f"/GRNOD/NODE/{grnd_id}/0",
-            f"SPC_{trarot}",
+        grnod_keyword = (
+            f"/GRNOD/NODE/"
+            f"{grnd_id}/0"
+        )
+
+        grnod_lines = [
+            f"SPC_{trarot}"
         ]
 
-        group_lines.extend(
-            _fmt_node_rows(
+        grnod_lines.extend(
+            _format_node_rows(
                 node_ids
             )
         )
 
         blocks.append(
             RadBlock(
-                keyword=(
-                    f"/GRNOD/NODE/"
-                    f"{grnd_id}/0"
-                ),
-                lines=group_lines,
+                keyword=grnod_keyword,
+                lines=grnod_lines,
                 order=50,
                 plugin=plugin.name,
                 source_cards=("SPC",),
@@ -190,25 +223,27 @@ def translate(model, ctx, plugin):
         )
 
         # ========================================================
-        # BLOCK 2
         # /BCS/<bcs_ID>
+        #
+        # Again: keyword is stored separately.
         # ========================================================
 
-        bcs_data = (
-            _fmt10(trarot)
-            + _fmt10(0)
-            + _fmt10(grnd_id)
+        bcs_keyword = (
+            f"/BCS/{bcs_id}"
         )
 
         bcs_lines = [
-            f"/BCS/{bcs_id}",
             f"SPC_{trarot}",
-            bcs_data,
+            _format_bcs_data(
+                trarot,
+                0,
+                grnd_id,
+            ),
         ]
 
         blocks.append(
             RadBlock(
-                keyword=f"/BCS/{bcs_id}",
+                keyword=bcs_keyword,
                 lines=bcs_lines,
                 order=51,
                 plugin=plugin.name,
@@ -222,11 +257,8 @@ def translate(model, ctx, plugin):
                 "sid": sid,
                 "status": "translated",
                 "target": [
-                    (
-                        f"/GRNOD/NODE/"
-                        f"{grnd_id}/0"
-                    ),
-                    f"/BCS/{bcs_id}",
+                    grnod_keyword,
+                    bcs_keyword,
                 ],
                 "Trarot": trarot,
                 "Skew_ID": 0,
@@ -237,7 +269,4 @@ def translate(model, ctx, plugin):
 
         next_group_id += 1
 
-    return (
-        blocks,
-        audit,
-    )
+    return blocks, audit

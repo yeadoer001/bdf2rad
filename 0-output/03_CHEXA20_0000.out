@@ -24,7 +24,7 @@
  COMPUTATION HARDWARE DESCRIPTION
   
  HOSTNAME     CPU TYPE, FREQUENCY AND MEMORY
- DONGCR1-N   AMD Ryzen Threadripper PRO 5945WX 12-Cores      (x86_64), 4100 MHz, 105256 MB RAM, 139116 MB swap
+ DONGCR1-N   AMD Ryzen Threadripper PRO 5945WX 12-Cores      (x86_64), 4100 MHz, 105214 MB RAM, 139116 MB swap
   
  STACKSIZE  . . . . . . . . . . . . . . . . . . . . 1430 MB
  THREAD STACKSIZE . . . . . . . . . . . . . . . . . 400 MB
@@ -39,25 +39,7 @@
 ERROR ID : 100101
 ** ERROR IN INPUT FORMAT
 DESCRIPTION :  
--- BLOCK: /GRNOD/NODE/400000/0
--- LINE: /GRNOD/NODE/400000/0
-STRING "/GRNOD/NOD" found instead of an integer
-SOLUTION :     
-Please check input format and fields description defined in the Reference Guide.
-
-ERROR ID : 100101
-** ERROR IN INPUT FORMAT
-DESCRIPTION :  
--- BLOCK: /GRNOD/NODE/400000/0
--- LINE: /GRNOD/NODE/400000/0
-STRING "E/400000/0" found instead of an integer
-SOLUTION :     
-Please check input format and fields description defined in the Reference Guide.
-
-ERROR ID : 100101
-** ERROR IN INPUT FORMAT
-DESCRIPTION :  
--- BLOCK: /GRNOD/NODE/400000/0
+-- BLOCK: /BRIC20/1
 -- LINE: SPC_111111
 STRING "SPC_111111" found instead of an integer
 SOLUTION :     
@@ -66,16 +48,7 @@ Please check input format and fields description defined in the Reference Guide.
 ERROR ID : 100101
 ** ERROR IN INPUT FORMAT
 DESCRIPTION :  
--- BLOCK: /BCS/400000
--- LINE: /BCS/400000
-STRING "/BCS/40000" found instead of an integer
-SOLUTION :     
-Please check input format and fields description defined in the Reference Guide.
-
-ERROR ID : 100101
-** ERROR IN INPUT FORMAT
-DESCRIPTION :  
--- BLOCK: /BCS/400000
+-- BLOCK: /BRIC20/1
 -- LINE: SPC_111111
 STRING "SPC_111111" found instead of an integer
 SOLUTION :     
@@ -93,7 +66,7 @@ Please check input format and fields description defined in the Reference Guide.
 ERROR ID :   2000
 ** ERROR WHILE READING INPUT FILE
 DESCRIPTION :  
-   6 ERRORS FOUND
+   3 ERRORS FOUND
 
 
  RADIOSS STOP DUE TO INPUT ERROR
@@ -103,13 +76,13 @@ DESCRIPTION :
 |            ERROR(S) SUMMARY                               |             WARNING(S) SUMMARY                           |
 ------------------------------------------------------------------------------------------------------------------------
 |                                                           |                                                          |
-|  --- GLOBAL UNITS                           7   ERROR(S)  |                                                          |
+|  --- GLOBAL UNITS                           4   ERROR(S)  |                                                          |
 |       |                                                   |                                                          |
 |       |                                                   |                                                          |
 |       |---     1   ERROR ID :         2000                |                                                          |
 |       | ** ERROR WHILE READING INPUT FILE                 |                                                          |
 |       |                                                   |                                                          |
-|       |---     6   ERROR ID :       100101                |                                                          |
+|       |---     3   ERROR ID :       100101                |                                                          |
 |       | ** ERROR IN INPUT FORMAT                          |                                                          |
 |       |                                                   |                                                          |
 |                                                           |                                                          |
@@ -124,4 +97,4 @@ DESCRIPTION :
 
      ERROR TERMINATION                  
      ------------------                                                                  
-              7ERROR(S)            
+              4ERROR(S)            
