@@ -332,8 +332,16 @@
     },
     {
       "card": "SPC",
+      "sid": 901,
       "status": "translated",
-      "target": "/BCS/400000",
+      "target": [
+        "/GRNOD/NODE/400000/0",
+        "/BCS/400000"
+      ],
+      "node_group": 400000,
+      "bcs_id": 400000,
+      "Trarot": "111111",
+      "Skew_ID": 0,
       "count": 4
     },
     {

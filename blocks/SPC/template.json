@@ -1,12 +1,17 @@
 {
   "name": "BCS",
   "lines": [
-    "/GRNOD/NODE/{{GRID}}",
+    "/GRNOD/NODE/{{GRID}}/0",
     "SPC_{{CODE}}",
     "{{NODE_ROWS}}",
     "/BCS/{{ID}}",
     "SPC_{{CODE}}",
     "{{TRAROT}}{{SKEW}}{{GRND}}"
   ],
-  "official_url": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/bcs_starter_r.htm"
+  "official_url": "https://2023.help.altair.com/2023/hwsolvers/rad/topics/solvers/rad/bcs_starter_r.htm",
+  "format_basis": "OpenRadioss 2023",
+  "notes": [
+    "/GRNOD/NODE requires grnd_ID/unit_ID in the keyword line.",
+    "/BCS requires Trarot, Skew_ID and grnd_ID."
+  ]
 }
