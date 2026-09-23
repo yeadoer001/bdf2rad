@@ -1,0 +1,318 @@
+{
+  "status": "GENERATED",
+  "jobname": "01_GRID_basic",
+  "source": "E:\\openradioss\\input\\01_GRID_basic.bdf",
+  "blocks": [
+    {
+      "name": "grid",
+      "source_cards": [
+        "GRID"
+      ],
+      "order": 10,
+      "target_blocks": [
+        "/NODE"
+      ],
+      "status": "active",
+      "block_dir": "D:\\BDF2RAD-X\\bdf2rad\\blocks\\GRID"
+    },
+    {
+      "name": "mat1",
+      "source_cards": [
+        "MAT1"
+      ],
+      "order": 20,
+      "target_blocks": [
+        "/MAT/LAW1"
+      ],
+      "status": "active",
+      "block_dir": "D:\\BDF2RAD-X\\bdf2rad\\blocks\\MAT1"
+    },
+    {
+      "name": "mats1",
+      "source_cards": [
+        "MATS1"
+      ],
+      "order": 25,
+      "target_blocks": [],
+      "status": "audit-only",
+      "block_dir": "D:\\BDF2RAD-X\\bdf2rad\\blocks\\MATS1"
+    },
+    {
+      "name": "psolid",
+      "source_cards": [
+        "PSOLID"
+      ],
+      "order": 30,
+      "target_blocks": [
+        "/PROP/SOLID + /PART"
+      ],
+      "status": "active",
+      "block_dir": "D:\\BDF2RAD-X\\bdf2rad\\blocks\\PSOLID"
+    },
+    {
+      "name": "part",
+      "source_cards": [
+        "PSOLID"
+      ],
+      "order": 35,
+      "target_blocks": [
+        "/PART"
+      ],
+      "status": "active",
+      "block_dir": "D:\\BDF2RAD-X\\bdf2rad\\blocks\\PART"
+    },
+    {
+      "name": "chexa8",
+      "source_cards": [
+        "CHEXA"
+      ],
+      "order": 40,
+      "target_blocks": [
+        "/BRICK"
+      ],
+      "status": "active",
+      "block_dir": "D:\\BDF2RAD-X\\bdf2rad\\blocks\\CHEXA8"
+    },
+    {
+      "name": "chexa20",
+      "source_cards": [
+        "CHEXA"
+      ],
+      "order": 41,
+      "target_blocks": [
+        "/BRIC20"
+      ],
+      "status": "active",
+      "block_dir": "D:\\BDF2RAD-X\\bdf2rad\\blocks\\CHEXA20"
+    },
+    {
+      "name": "ctetra10",
+      "source_cards": [
+        "CTETRA"
+      ],
+      "order": 42,
+      "target_blocks": [
+        "/TETRA10"
+      ],
+      "status": "active",
+      "block_dir": "D:\\BDF2RAD-X\\bdf2rad\\blocks\\CTETRA10"
+    },
+    {
+      "name": "cpenta",
+      "source_cards": [
+        "CPENTA"
+      ],
+      "order": 43,
+      "target_blocks": [
+        "/BRICK or /BRIC20"
+      ],
+      "status": "active",
+      "block_dir": "D:\\BDF2RAD-X\\bdf2rad\\blocks\\CPENTA"
+    },
+    {
+      "name": "spc",
+      "source_cards": [
+        "SPC"
+      ],
+      "order": 50,
+      "target_blocks": [
+        "/GRNOD/NODE + /BCS"
+      ],
+      "status": "active",
+      "block_dir": "D:\\BDF2RAD-X\\bdf2rad\\blocks\\SPC"
+    },
+    {
+      "name": "tic",
+      "source_cards": [
+        "TIC"
+      ],
+      "order": 51,
+      "target_blocks": [
+        "/GRNOD/NODE + /INIVEL/TRA"
+      ],
+      "status": "active",
+      "block_dir": "D:\\BDF2RAD-X\\bdf2rad\\blocks\\TIC"
+    },
+    {
+      "name": "rbe2",
+      "source_cards": [
+        "RBE2"
+      ],
+      "order": 60,
+      "target_blocks": [
+        "/GRNOD/NODE + /RBE2"
+      ],
+      "status": "active",
+      "block_dir": "D:\\BDF2RAD-X\\bdf2rad\\blocks\\RBE2"
+    },
+    {
+      "name": "rbe3",
+      "source_cards": [
+        "RBE3"
+      ],
+      "order": 61,
+      "target_blocks": [
+        "/GRNOD/NODE + /RBE3"
+      ],
+      "status": "active",
+      "block_dir": "D:\\BDF2RAD-X\\bdf2rad\\blocks\\RBE3"
+    },
+    {
+      "name": "conm2",
+      "source_cards": [
+        "CONM2"
+      ],
+      "order": 70,
+      "target_blocks": [
+        "/GRNOD/NODE + /ADMAS/0"
+      ],
+      "status": "active",
+      "block_dir": "D:\\BDF2RAD-X\\bdf2rad\\blocks\\CONM2"
+    },
+    {
+      "name": "grav",
+      "source_cards": [
+        "GRAV"
+      ],
+      "order": 80,
+      "target_blocks": [
+        "/GRAV"
+      ],
+      "status": "active",
+      "block_dir": "D:\\BDF2RAD-X\\bdf2rad\\blocks\\GRAV"
+    },
+    {
+      "name": "bsurfs",
+      "source_cards": [
+        "BSURFS"
+      ],
+      "order": 90,
+      "target_blocks": [
+        "/SURF/SEG",
+        "/GRNOD/NODE"
+      ],
+      "status": "active",
+      "block_dir": "D:\\BDF2RAD-X\\bdf2rad\\blocks\\BSURFS"
+    },
+    {
+      "name": "bctset",
+      "source_cards": [
+        "BCTSET"
+      ],
+      "order": 91,
+      "target_blocks": [
+        "/INTER/TYPE7"
+      ],
+      "status": "active",
+      "block_dir": "D:\\BDF2RAD-X\\bdf2rad\\blocks\\BCTSET"
+    },
+    {
+      "name": "bgset",
+      "source_cards": [
+        "BGSET"
+      ],
+      "order": 92,
+      "target_blocks": [
+        "/INTER/TYPE2"
+      ],
+      "status": "audit-only",
+      "block_dir": "D:\\BDF2RAD-X\\bdf2rad\\blocks\\BGSET"
+    },
+    {
+      "name": "bctadd",
+      "source_cards": [
+        "BCTADD"
+      ],
+      "order": 95,
+      "target_blocks": [],
+      "status": "audit-only",
+      "block_dir": "D:\\BDF2RAD-X\\bdf2rad\\blocks\\BCTADD"
+    },
+    {
+      "name": "bgadd",
+      "source_cards": [
+        "BGADD"
+      ],
+      "order": 96,
+      "target_blocks": [],
+      "status": "audit-only",
+      "block_dir": "D:\\BDF2RAD-X\\bdf2rad\\blocks\\BGADD"
+    },
+    {
+      "name": "tstep1",
+      "source_cards": [
+        "TSTEP1"
+      ],
+      "order": 910,
+      "target_blocks": [
+        "/RUN"
+      ],
+      "status": "active",
+      "block_dir": "D:\\BDF2RAD-X\\bdf2rad\\blocks\\TSTEP1"
+    },
+    {
+      "name": "nlcntl",
+      "source_cards": [
+        "NLCNTL"
+      ],
+      "order": 920,
+      "target_blocks": [],
+      "status": "audit-only",
+      "block_dir": "D:\\BDF2RAD-X\\bdf2rad\\blocks\\NLCNTL"
+    },
+    {
+      "name": "nlcntlg",
+      "source_cards": [
+        "NLCNTLG"
+      ],
+      "order": 921,
+      "target_blocks": [],
+      "status": "audit-only",
+      "block_dir": "D:\\BDF2RAD-X\\bdf2rad\\blocks\\NLCNTLG"
+    },
+    {
+      "name": "nlcntl2",
+      "source_cards": [
+        "NLCNTL2"
+      ],
+      "order": 922,
+      "target_blocks": [],
+      "status": "audit-only",
+      "block_dir": "D:\\BDF2RAD-X\\bdf2rad\\blocks\\NLCNTL2"
+    },
+    {
+      "name": "tempd",
+      "source_cards": [
+        "TEMPD"
+      ],
+      "order": 930,
+      "target_blocks": [],
+      "status": "audit-only",
+      "block_dir": "D:\\BDF2RAD-X\\bdf2rad\\blocks\\TEMPD"
+    },
+    {
+      "name": "param",
+      "source_cards": [
+        "PARAM"
+      ],
+      "order": 940,
+      "target_blocks": [],
+      "status": "audit-only",
+      "block_dir": "D:\\BDF2RAD-X\\bdf2rad\\blocks\\PARAM"
+    }
+  ],
+  "cards": {
+    "GRID": 3
+  },
+  "diagnostics": [],
+  "audit": [
+    {
+      "card": "GRID",
+      "status": "translated",
+      "count": 3,
+      "target": "/NODE"
+    }
+  ],
+  "starter": "E:\\openradioss\\output\\01_GRID_basic_0000.rad",
+  "engine": null
+}
