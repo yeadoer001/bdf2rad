@@ -2,24 +2,19 @@ from __future__ import annotations
 
 from collections import defaultdict
 
-from bdf2rad.core.plugin_helpers import emit, rb
+from bdf2rad.core.plugin_helpers import emit, rb, RadBlock
 
 
-def _nastran_component_to_trarot(component):
+def _component_to_trarot(component: str) -> str:
     """
-    Convert Nastran SPC component string to Radioss Trarot.
+    Convert Nastran SPC component digits to Radioss Trarot.
 
     Nastran:
-        1=X
-        2=Y
-        3=Z
-        4=RX
-        5=RY
-        6=RZ
+        1 2 3 4 5 6
 
     Radioss:
         TX TY TZ RX RY RZ
-        represented by six Boolean values.
+        represented by six 0/1 flags.
     """
 
     text = str(component).strip()
@@ -31,16 +26,15 @@ def _nastran_component_to_trarot(component):
 
     if not text.isdigit():
         raise ValueError(
-            f"Invalid Nastran SPC component: "
-            f"{component!r}"
+            f"Invalid Nastran SPC component: {component!r}"
         )
 
-    allowed = set("123456")
-
-    if any(ch not in allowed for ch in text):
+    if any(
+        ch not in "123456"
+        for ch in text
+    ):
         raise ValueError(
-            f"Invalid Nastran SPC component: "
-            f"{component!r}"
+            f"Invalid Nastran SPC component: {component!r}"
         )
 
     flags = ["0"] * 6
@@ -51,54 +45,30 @@ def _nastran_component_to_trarot(component):
     return "".join(flags)
 
 
-def _format_trarot(trarot):
-    """
-    Official Radioss /BCS format:
-    the six Trarot Boolean values occupy the first
-    10-character field and are right-justified.
-    """
-    value = str(trarot).strip()
-
-    if len(value) != 6:
-        raise ValueError(
-            f"Invalid Trarot value: {value!r}"
-        )
-
-    if any(ch not in "01" for ch in value):
-        raise ValueError(
-            f"Invalid Trarot value: {value!r}"
-        )
-
-    # Radioss uses the six Trarot flags as one six-character field,
-    # followed by Skew_ID and grnd_ID.
+def _fmt10(value) -> str:
     return f"{value:>10}"
 
 
-def _format_int(value):
-    """
-    Radioss integer field.
-    """
-    return f"{int(value):>10d}"
+def _fmt_node_rows(node_ids):
+    rows = []
 
+    for start in range(
+        0,
+        len(node_ids),
+        10,
+    ):
+        chunk = node_ids[
+            start:start + 10
+        ]
 
-def _format_bcs_data(
-    trarot,
-    skew_id,
-    grnd_id,
-):
-    """
-    Build the complete /BCS data row.
+        rows.append(
+            "".join(
+                f"{int(nid):>10d}"
+                for nid in chunk
+            )
+        )
 
-    /BCS:
-        Trarot    Skew_ID    grnd_ID
-
-    Each is represented as a 10-character field.
-    """
-    return (
-        _format_trarot(trarot)
-        + _format_int(skew_id)
-        + _format_int(grnd_id)
-    )
+    return rows
 
 
 def _resolve_spc_sid(model):
@@ -121,10 +91,14 @@ def _resolve_spc_sid(model):
 
 def translate(model, ctx, plugin):
     """
-    Translate Nastran SPC into:
+    Nastran SPC -> two independent Radioss Blocks:
 
-        /GRNOD/NODE/<grnd_ID>/<unit_ID>
-        /BCS/<bcs_ID>
+        /GRNOD/NODE/grnd_ID/unit_ID
+        /BCS/bcs_ID
+
+    IMPORTANT:
+    These are two separate Blocks and must never be
+    embedded into a single RadBlock.
     """
 
     sid = _resolve_spc_sid(model)
@@ -132,14 +106,17 @@ def translate(model, ctx, plugin):
     grouped = defaultdict(list)
 
     for record in model.spcs:
+
         if int(record.sid) != sid:
             continue
 
-        trarot = _nastran_component_to_trarot(
+        trarot = _component_to_trarot(
             record.comp
         )
 
-        grouped[trarot].append(
+        grouped[
+            trarot
+        ].append(
             int(record.nid)
         )
 
@@ -149,8 +126,10 @@ def translate(model, ctx, plugin):
     next_group_id = 400000
 
     for trarot, node_ids in sorted(
-        grouped.items()
+        grouped.items(),
+        key=lambda x: x[0],
     ):
+
         node_ids = sorted(
             set(node_ids)
         )
@@ -159,7 +138,7 @@ def translate(model, ctx, plugin):
             continue
 
         # --------------------------------------------------------
-        # Verify every node exists.
+        # Validate all source nodes.
         # --------------------------------------------------------
         missing = [
             nid
@@ -168,66 +147,71 @@ def translate(model, ctx, plugin):
         ]
 
         if missing:
-            sample = ", ".join(
-                str(nid)
-                for nid in missing[:20]
+            preview = ", ".join(
+                str(x)
+                for x in missing[:20]
             )
 
             raise ValueError(
                 f"SPC SID={sid}, Trarot={trarot}: "
-                f"{len(missing)} undefined node(s): "
-                f"{sample}"
+                f"undefined node IDs: {preview}"
             )
 
-        group_id = next_group_id
-        bcs_id = group_id
+        grnd_id = next_group_id
+        bcs_id = next_group_id
 
-        # --------------------------------------------------------
-        # /GRNOD/NODE
-        #
-        # Ten node IDs per line.
-        # --------------------------------------------------------
-        node_rows = "\n".join(
-            "".join(
-                f"{nid:>10d}"
-                for nid in node_ids[
-                    start:start + 10
-                ]
+        # ========================================================
+        # BLOCK 1
+        # /GRNOD/NODE/<grnd_ID>/<unit_ID>
+        # ========================================================
+
+        group_lines = [
+            f"/GRNOD/NODE/{grnd_id}/0",
+            f"SPC_{trarot}",
+        ]
+
+        group_lines.extend(
+            _fmt_node_rows(
+                node_ids
             )
-            for start in range(
-                0,
-                len(node_ids),
-                10,
-            )
-        )
-
-        # --------------------------------------------------------
-        # /BCS data row
-        # --------------------------------------------------------
-        bcs_data = _format_bcs_data(
-            trarot=trarot,
-            skew_id=0,
-            grnd_id=group_id,
-        )
-
-        substitutions = {
-            "GRID": group_id,
-            "CODE": trarot,
-            "NODE_ROWS": node_rows,
-            "ID": bcs_id,
-            "BCS_DATA": bcs_data,
-        }
-
-        block_lines = emit(
-            plugin,
-            substitutions,
         )
 
         blocks.append(
-            rb(
-                plugin,
-                f"/BCS/{bcs_id}",
-                block_lines,
+            RadBlock(
+                keyword=(
+                    f"/GRNOD/NODE/"
+                    f"{grnd_id}/0"
+                ),
+                lines=group_lines,
+                order=50,
+                plugin=plugin.name,
+                source_cards=("SPC",),
+            )
+        )
+
+        # ========================================================
+        # BLOCK 2
+        # /BCS/<bcs_ID>
+        # ========================================================
+
+        bcs_data = (
+            _fmt10(trarot)
+            + _fmt10(0)
+            + _fmt10(grnd_id)
+        )
+
+        bcs_lines = [
+            f"/BCS/{bcs_id}",
+            f"SPC_{trarot}",
+            bcs_data,
+        ]
+
+        blocks.append(
+            RadBlock(
+                keyword=f"/BCS/{bcs_id}",
+                lines=bcs_lines,
+                order=51,
+                plugin=plugin.name,
                 source_cards=("SPC",),
             )
         )
@@ -238,16 +222,22 @@ def translate(model, ctx, plugin):
                 "sid": sid,
                 "status": "translated",
                 "target": [
-                    f"/GRNOD/NODE/{group_id}/0",
+                    (
+                        f"/GRNOD/NODE/"
+                        f"{grnd_id}/0"
+                    ),
                     f"/BCS/{bcs_id}",
                 ],
                 "Trarot": trarot,
                 "Skew_ID": 0,
-                "grnd_ID": group_id,
-                "count": len(node_ids),
+                "grnd_ID": grnd_id,
+                "node_count": len(node_ids),
             }
         )
 
         next_group_id += 1
 
-    return blocks, audit
+    return (
+        blocks,
+        audit,
+    )

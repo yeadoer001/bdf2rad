@@ -24,7 +24,7 @@
  COMPUTATION HARDWARE DESCRIPTION
   
  HOSTNAME     CPU TYPE, FREQUENCY AND MEMORY
- DONGCR1-N   AMD Ryzen Threadripper PRO 5945WX 12-Cores      (x86_64), 4100 MHz, 103385 MB RAM, 139116 MB swap
+ DONGCR1-N   AMD Ryzen Threadripper PRO 5945WX 12-Cores      (x86_64), 4100 MHz, 105256 MB RAM, 139116 MB swap
   
  STACKSIZE  . . . . . . . . . . . . . . . . . . . . 1430 MB
  THREAD STACKSIZE . . . . . . . . . . . . . . . . . 400 MB
