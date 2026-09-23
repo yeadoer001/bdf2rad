@@ -302,17 +302,49 @@
     }
   ],
   "cards": {
-    "GRID": 3
+    "GRID": 11,
+    "PSOLID": 1,
+    "MAT1": 1,
+    "CHEXA": 1,
+    "SPC": 4,
+    "TSTEP1": 1
   },
   "diagnostics": [],
   "audit": [
     {
       "card": "GRID",
       "status": "translated",
-      "count": 3,
+      "count": 11,
       "target": "/NODE"
+    },
+    {
+      "card": "MAT1",
+      "id": 9001,
+      "status": "translated",
+      "target": "/MAT/LAW1/9001"
+    },
+    {
+      "card": "PSOLID",
+      "id": 9001,
+      "status": "translated",
+      "target": "/PROP/SOLID/9001",
+      "mid": 9001
+    },
+    {
+      "card": "SPC",
+      "status": "translated",
+      "target": "/BCS/400000",
+      "count": 4
+    },
+    {
+      "card": "TSTEP1",
+      "status": "translated",
+      "target": "/RUN/{{RUNNAME}}/1",
+      "TSTEP_ID": 401,
+      "TSTOP_source": 0.0,
+      "TSTOP_rad_ms": 0.0
     }
   ],
-  "starter": "E:\\openradioss\\output\\01_GRID_basic_0000.rad",
-  "engine": null
+  "starter": "D:\\BDF2RAD-X\\bdf2rad\\0-output\\01_GRID_basic_0000.rad",
+  "engine": "D:\\BDF2RAD-X\\bdf2rad\\0-output\\01_GRID_basic_0001.rad"
 }
