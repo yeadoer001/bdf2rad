@@ -1,4 +1,4 @@
- 03_CHEXA20_0001.out
+ 10_RBE2_0001.out
 ************************************************************************
 **                                                                    **
 **                                                                    **
@@ -27,9 +27,9 @@
  COMPUTATION HARDWARE DESCRIPTION
   
  CPU#  HOSTNAME     CPU TYPE, FREQUENCY AND MEMORY
-   1   DONGCR1-N   AMD Ryzen Threadripper PRO 5945WX 12-Cores      (x86_64), 4100 MHz, 104397 MB RAM, 139116 MB swap
-   2   DONGCR1-N   AMD Ryzen Threadripper PRO 5945WX 12-Cores      (x86_64), 4100 MHz, 104396 MB RAM, 139116 MB swap
-   3   DONGCR1-N   AMD Ryzen Threadripper PRO 5945WX 12-Cores      (x86_64), 4100 MHz, 104395 MB RAM, 139116 MB swap
+   1   DONGCR1-N   AMD Ryzen Threadripper PRO 5945WX 12-Cores      (x86_64), 4100 MHz, 104100 MB RAM, 139116 MB swap
+   2   DONGCR1-N   AMD Ryzen Threadripper PRO 5945WX 12-Cores      (x86_64), 4100 MHz, 104100 MB RAM, 139116 MB swap
+   3   DONGCR1-N   AMD Ryzen Threadripper PRO 5945WX 12-Cores      (x86_64), 4100 MHz, 104100 MB RAM, 139116 MB swap
   
  STACKSIZE  . . . . . . . . . . . . . . . . . . . . 1430 MB
  THREAD STACKSIZE . . . . . . . . . . . . . . . . . 400 MB
@@ -37,7 +37,7 @@
 ************************************************************************
 
 
- 03_CHEXA20D0103_CHEXA20 Converted from Nastran BDF                              
+ 10_RBE2D0110_RBE2 Converted from Nastran BDF                                    
 
 
  FINAL TIME . . . . . . . . . . . . . . . . . . .   0.000000    
@@ -166,10 +166,10 @@
 
  23/09/2026
    CYCLE    TIME      TIME-STEP  ELEMENT          ERROR  I-ENERGY    K-ENERGY T  K-ENERGY R  EXT-WORK     MAS.ERR     TOTAL MASS  MASS ADDED
-       0   0.000      0.4260E-05 SOLID          1   0.0%   0.000       0.000       0.000       0.000       0.000      0.1000E-02   0.000    
-     ANIMATION FILE: 03_CHEXA20A001 WRITTEN
+       0   0.000      0.1000E+07 FIXED          0   0.0%   0.000       0.000       0.000       0.000       0.000       0.000       0.000    
+     ANIMATION FILE: 10_RBE2A001 WRITTEN
 
-     RESTART FILES: 03_CHEXA20_0001_[0001-0003].rst WRITTEN
+     RESTART FILES: 10_RBE2_0001_[0001-0003].rst WRITTEN
      -------------
 
   
@@ -179,9 +179,9 @@
                         ** SUMMARY **
   
  #PROC  ELEMENT   KINCOND   INTEG     IO        T0        ASM       RESOL    
-   1   .0000E+00 .0000E+00 .0000E+00 .3125E-01 .0000E+00 .0000E+00 .4688E-01
-   2   .0000E+00 .0000E+00 .0000E+00 .3125E-01 .0000E+00 .0000E+00 .4688E-01
-   3   .0000E+00 .0000E+00 .0000E+00 .3125E-01 .0000E+00 .0000E+00 .4688E-01
+   1   .0000E+00 .0000E+00 .0000E+00 .6250E-01 .0000E+00 .0000E+00 .6250E-01
+   2   .0000E+00 .0000E+00 .0000E+00 .4688E-01 .0000E+00 .0000E+00 .4688E-01
+   3   .0000E+00 .0000E+00 .0000E+00 .4688E-01 .0000E+00 .0000E+00 .4688E-01
   
                  ** SPMD COM. TIME **
   
@@ -199,8 +199,8 @@
  KINEMATIC COND..............: .0000E+00     0.00 % 
  INTEGRATION.................: .0000E+00     0.00 % 
  ASSEMBLING..................: .0000E+00     0.00 % 
- OTHERS (including I/O)......: .1406E+00   100.00 % 
- TOTAL.......................: .1406E+00   100.00 % 
+ OTHERS (including I/O)......: .1562E+00   100.00 % 
+ TOTAL.......................: .1562E+00   100.00 % 
   
   
                            ** ELAPSED TIME **
@@ -209,26 +209,26 @@
                         ** SUMMARY **
   
  #PROC  ELEMENT   KINCOND   INTEG     IO        T0        ASM       RESOL    
-   1   .8101E-03 .2630E-04 .1064E-03 .9256E-02 .2534E-02 .1116E-03 .1439E-01
-   2   .5613E-03 .4090E-04 .1445E-03 .9177E-02 .2521E-02 .1310E-03 .1731E-01
-   3   .4430E-03 .4920E-04 .1332E-03 .9243E-02 .2521E-02 .1222E-03 .1686E-01
+   1   .1420E-03 .2828E-03 .0000E+00 .8241E-02 .2237E-02 .9340E-04 .1235E-01
+   2   .4013E-03 .6930E-04 .0000E+00 .8326E-02 .2238E-02 .4410E-04 .1405E-01
+   3   .4410E-03 .2790E-04 .0000E+00 .8648E-02 .2241E-02 .5190E-04 .1437E-01
   
         ELEMENT   KINCOND   INTEG     IO        T0        ASM       RESOL    
- MIN   .4430E-03 .2630E-04 .1064E-03 .9177E-02 .2521E-02 .1116E-03 .1439E-01
- MAX   .8101E-03 .4920E-04 .1445E-03 .9256E-02 .2534E-02 .1310E-03 .1731E-01
- AVG   .6048E-03 .3880E-04 .1280E-03 .9225E-02 .2525E-02 .1216E-03 .1619E-01
+ MIN   .1420E-03 .2790E-04 .0000E+00 .8241E-02 .2237E-02 .4410E-04 .1235E-01
+ MAX   .4410E-03 .2828E-03 .0000E+00 .8648E-02 .2241E-02 .9340E-04 .1437E-01
+ AVG   .3281E-03 .1267E-03 .0000E+00 .8405E-02 .2239E-02 .6313E-04 .1359E-01
   
                  ** SPMD COM. TIME **
   
  #PROC  FORCES    RBYFOR    RBYVEL    VEL       TOT       %        
-   1   .1580E-04 .0000E+00 .0000E+00 .2150E-04 .3730E-04 .2592E+00
-   2   .1210E-04 .0000E+00 .0000E+00 .2010E-04 .3220E-04 .1860E+00
-   3   .1560E-04 .0000E+00 .0000E+00 .2210E-04 .3770E-04 .2236E+00
+   1   .1570E-04 .0000E+00 .0000E+00 .2000E-04 .3570E-04 .2891E+00
+   2   .1160E-04 .0000E+00 .0000E+00 .2150E-04 .3310E-04 .2356E+00
+   3   .1280E-04 .0000E+00 .0000E+00 .2600E-04 .3880E-04 .2700E+00
   
         FORCES    RBYFOR    RBYVEL    VEL       TOT       %        
- MIN   .1210E-04 .0000E+00 .0000E+00 .2010E-04 .3220E-04 .1860E+00
- MAX   .1580E-04 .0000E+00 .0000E+00 .2210E-04 .3770E-04 .2592E+00
- AVG   .1450E-04 .0000E+00 .0000E+00 .2123E-04 .3573E-04 .2229E+00
+ MIN   .1160E-04 .0000E+00 .0000E+00 .2000E-04 .3310E-04 .2356E+00
+ MAX   .1570E-04 .0000E+00 .0000E+00 .2600E-04 .3880E-04 .2891E+00
+ AVG   .1337E-04 .0000E+00 .0000E+00 .2250E-04 .3587E-04 .2649E+00
   
                    ** MEMORY USAGE STATISTICS **
   
@@ -246,12 +246,12 @@
                    ** COMPUTE TIME INFORMATION **
                         ** CURRENT ENGINE **
   
- EXECUTION STARTED .........................:      2026/09/23  19:33:31
- EXECUTION COMPLETED .......................:      2026/09/23  19:33:31
+ EXECUTION STARTED .........................:      2026/09/23  20:10:54
+ EXECUTION COMPLETED .......................:      2026/09/23  20:10:54
   
  ELAPSED TIME     =          0.38 s
                           0:00:00
- ESTIMATED SPEEDUP=          0.37
+ ESTIMATED SPEEDUP=          0.42
 
 
 
@@ -264,8 +264,8 @@
   
                    ** COMPUTE RUNTIME INFORMATION SUMMARY **
   
-        STARTER RUNTIME =          0.94s (00:00:00)
+        STARTER RUNTIME =          0.85s (00:00:00)
  # 001   ENGINE RUNTIME =          0.38s (00:00:00)
  ------------------------------ 
- STARTER+ENGINE RUNTIME =          1.32s (00:00:01)
+ STARTER+ENGINE RUNTIME =          1.23s (00:00:01)
   

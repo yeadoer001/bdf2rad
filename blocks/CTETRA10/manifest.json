@@ -6,10 +6,14 @@
   ],
   "order": 42,
   "target_blocks": [
-    "/TETRA10"
+    "/TETRA4"
   ],
   "status": "active",
-  "official_url": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/element_solids_starter_r.htm",
-  "template": null,
-  "plugin_version": "1.0.0"
+  "official_url": "https://2024.help.altair.com/2024/hwdesktop/hwx/topics/conversion_between_solvers/convert_nastran_to_radioss_mapping.htm",
+  "mapping_rule": "CTETRA10 -> first-order downgrade -> /TETRA4",
+  "notes": [
+    "The official Nastran-to-Radioss conversion mapping changes CTETRA10 to first order before conversion.",
+    "Only the four corner nodes are retained for the target TETRA4 element.",
+    "Midside nodes are not written to the target TETRA4 element."
+  ]
 }

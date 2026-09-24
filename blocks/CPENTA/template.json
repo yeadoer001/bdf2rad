@@ -1,8 +1,11 @@
 {
-  "name": "BRIC20",
+  "name": "BRICK",
   "lines": [
-    "/BRIC20/{{PART}}",
+    "/BRICK/{{PART}}",
     "{{ROWS}}"
   ],
-  "official_url": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/element_solids_starter_r.htm"
+  "official_url": "https://www.help.altair.com/2021/hwsolvers/rad/topics/solvers/rad/brick_starter_r.htm",
+  "format_basis": "OpenRadioss /BRICK",
+  "mapping_basis": "Official Nastran-to-Radioss conversion mapping for CPENTA15",
+  "degeneration_rule": "Pentahedron represented by a degenerated 8-node BRICK using repeated corner nodes"
 }

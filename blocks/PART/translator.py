@@ -11,48 +11,48 @@ from bdf2rad.core.plugin_helpers import (
 
 def _family(element):
     """
-    Resolve the target Radioss element family according to the
-    official Nastran-to-Radioss conversion mapping.
+    Resolve the target Radioss element family according to
+    the official Nastran -> Radioss conversion mapping.
 
-    Important:
-        CHEXA20 is NOT mapped to /BRIC20 here.
+    Important mappings:
 
-        Official mapping:
-            CHEXA20 -> first-order -> /BRICK
+        CHEXA8
+            -> /BRICK
+
+        CHEXA20
+            -> first order
+            -> /BRICK
+
+        CTETRA4
+            -> /TETRA4
+
+        CTETRA10
+            -> first order
+            -> /TETRA4
+
+        CPENTA6 / CPENTA15
+            -> first order / degenerated brick route
     """
 
-    # ------------------------------------------------------------
-    # First-order CHEXA
-    # ------------------------------------------------------------
+    # ============================================================
+    # HEXA
+    # ============================================================
+
     if (
         element.typ == "CHEXA"
         and len(element.nodes) == 8
     ):
         return "BRICK"
 
-    # ------------------------------------------------------------
-    # Second-order CHEXA
-    #
-    # Official Nastran -> Radioss mapping:
-    # CHEXA20 -> change to 1st order -> /BRICK
-    # ------------------------------------------------------------
     if (
         element.typ == "CHEXA"
         and len(element.nodes) == 20
     ):
         return "BRICK"
 
-    # ------------------------------------------------------------
-    # CTETRA10:
-    # official conversion also changes to first order.
-    # The dedicated CTETRA10 translator is responsible for
-    # performing the actual node reduction.
-    # ------------------------------------------------------------
-    if (
-        element.typ == "CTETRA"
-        and len(element.nodes) == 10
-    ):
-        return "TETRA4"
+    # ============================================================
+    # TETRA
+    # ============================================================
 
     if (
         element.typ == "CTETRA"
@@ -60,12 +60,16 @@ def _family(element):
     ):
         return "TETRA4"
 
-    # ------------------------------------------------------------
-    # CPENTA15:
-    # official conversion changes to first order and ultimately
-    # follows the /BRICK family route.
-    # Dedicated CPENTA translator handles topology.
-    # ------------------------------------------------------------
+    if (
+        element.typ == "CTETRA"
+        and len(element.nodes) == 10
+    ):
+        return "TETRA4"
+
+    # ============================================================
+    # PENTA
+    # ============================================================
+
     if (
         element.typ == "CPENTA"
         and len(element.nodes) >= 6
@@ -81,20 +85,20 @@ def translate(
     plugin,
 ):
     """
-    Create Radioss /PART definitions grouped by:
+    Generate /PART definitions grouped by:
 
-        source PSOLID PID
+        source PID
         +
-        target Radioss element family
+        actual target Radioss family
 
-    This preserves separate parts when one source PID contains
-    different target element families.
+    The family name here MUST exactly match the name queried
+    by each element translator.
     """
 
     families = defaultdict(list)
 
     # ------------------------------------------------------------
-    # Build source-PID / target-family groups.
+    # Group elements by source PID + target family.
     # ------------------------------------------------------------
     for element in model.elements.values():
 
@@ -117,13 +121,12 @@ def translate(
     part_map = {}
 
     blocks = []
-
     audit = []
 
     next_part_id = 100000
 
     # ------------------------------------------------------------
-    # Create target PARTs.
+    # Generate PARTs.
     # ------------------------------------------------------------
     for (
         pid,
@@ -132,21 +135,27 @@ def translate(
         families.items()
     ):
 
-        same_pid_families = {
+        pid_families = {
             key
             for key in families
             if key[0] == pid
         }
 
-        # If this PID belongs to only one target family,
-        # keep the source PID as the target PART ID.
-        if len(same_pid_families) == 1:
+        # --------------------------------------------------------
+        # If one PID maps to exactly one target family, preserve
+        # the original PID as the Radioss PART ID.
+        # --------------------------------------------------------
+        if len(pid_families) == 1:
+
             part_id = pid
 
         else:
-            # If one Nastran PID contains elements that need
-            # different target families, create distinct Radioss
-            # part IDs.
+
+            # ----------------------------------------------------
+            # Same source PSOLID PID used by several target
+            # element families: split into independent Radioss
+            # PART IDs.
+            # ----------------------------------------------------
             part_id = next_part_id
             next_part_id += 1
 
@@ -161,19 +170,32 @@ def translate(
             pid
         )
 
-        material_id = (
-            prop.mid
-            if prop is not None
-            else 0
-        )
+        if prop is None:
+            prop_id = 0
+            mat_id = 0
+
+        else:
+            prop_id = int(
+                prop.pid
+            )
+
+            mat_id = int(
+                prop.mid
+            )
 
         values = {
             "ID": part_id,
             "TITLE": (
-                f"BDF_PART_{pid}_{family}"
+                f"BDF_PART_"
+                f"{pid}_"
+                f"{family}"
             ),
-            "PROP": fi(pid),
-            "MAT": fi(material_id),
+            "PROP": fi(
+                prop_id
+            ),
+            "MAT": fi(
+                mat_id
+            ),
             "SUBSET": fi(0),
             "THICK": fi(0),
         }
@@ -196,11 +218,13 @@ def translate(
             {
                 "card": "PSOLID",
                 "source_pid": pid,
-                "family": family,
+                "target_family": family,
                 "status": "translated",
                 "target": (
                     f"/PART/{part_id}"
                 ),
+                "property_id": prop_id,
+                "material_id": mat_id,
                 "element_count": len(
                     elements
                 ),
@@ -208,7 +232,7 @@ def translate(
         )
 
     # ------------------------------------------------------------
-    # Make target family map available to element translators.
+    # Make the exact mapping available to element translators.
     # ------------------------------------------------------------
     ctx.metadata[
         "part_map"

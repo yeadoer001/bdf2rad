@@ -1,5 +1,5 @@
 #--------------------------------------------------------------------------------------------------|
-# <03_CHEXA20> ("Model")
+# <10_RBE2> ("Model")
 # Copyright (C) 2026 SISW Siemens Industry Software Inc. ("Holder")
 # Model is licensed by Holder under CC BY-NC 4.0
 # (<https://creativecommons.org/licenses/by-nc/4.0/legalcode).>
@@ -18,11 +18,11 @@
 /RFILE
 #            NCYCLE
 100000
-/RUN/03_CHEXA20/1
+/RUN/10_RBE2/1
 0
 /TFILE/4
 #            dT_HIS
 0.100000
 /TITLE
-03_CHEXA20 Converted from Nastran BDF
+10_RBE2 Converted from Nastran BDF
 /VERS/2023

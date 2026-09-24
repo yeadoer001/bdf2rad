@@ -6,10 +6,15 @@
   ],
   "order": 43,
   "target_blocks": [
-    "/BRICK or /BRIC20"
+    "/BRICK"
   ],
   "status": "active",
-  "official_url": "https://www.2024.help.altair.com/2024/hwsolvers/rad/topics/solvers/rad/element_solids_starter_r.htm",
-  "template": null,
-  "plugin_version": "1.0.0"
+  "official_url": "https://2025.help.altair.com/2025/hwdesktop/hwx/topics/conversion_between_solvers/convert_nastran_to_radioss_mapping.htm",
+  "mapping_rule": "CPENTA6/CPENTA15 -> first-order -> degenerated /BRICK",
+  "notes": [
+    "The official Nastran-to-Radioss conversion mapping changes CPENTA15 to first order before conversion.",
+    "Only the first six corner nodes are retained for the solid pentahedron.",
+    "The first-order pentahedron is represented as a degenerated 8-node /BRICK by repeating the appropriate corner nodes.",
+    "Do not generate /BRIC20 for CPENTA15 in this translator."
+  ]
 }

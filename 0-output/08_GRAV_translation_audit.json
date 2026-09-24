@@ -1,7 +1,7 @@
 {
   "status": "GENERATED",
-  "jobname": "03_CHEXA20",
-  "source": "E:\\openradioss\\input\\03_CHEXA20.bdf",
+  "jobname": "08_GRAV",
+  "source": "E:\\openradioss\\input\\08_GRAV.bdf",
   "blocks": [
     {
       "name": "grid",
@@ -92,7 +92,7 @@
       ],
       "order": 42,
       "target_blocks": [
-        "/TETRA10"
+        "/TETRA4"
       ],
       "status": "active",
       "block_dir": "D:\\BDF2RAD-X\\bdf2rad\\blocks\\CTETRA10"
@@ -104,7 +104,7 @@
       ],
       "order": 43,
       "target_blocks": [
-        "/BRICK or /BRIC20"
+        "/BRICK"
       ],
       "status": "active",
       "block_dir": "D:\\BDF2RAD-X\\bdf2rad\\blocks\\CPENTA"
@@ -302,7 +302,8 @@
     }
   ],
   "cards": {
-    "GRID": 20,
+    "GRID": 9,
+    "GRAV": 1,
     "PSOLID": 1,
     "MAT1": 1,
     "CHEXA": 1,
@@ -314,45 +315,21 @@
     {
       "card": "GRID",
       "status": "translated",
-      "count": 20,
+      "count": 9,
       "target": "/NODE"
     },
     {
       "card": "MAT1",
-      "id": 1,
+      "id": 9001,
       "status": "translated",
-      "target": "/MAT/LAW1/1"
+      "target": "/MAT/LAW1/9001"
     },
     {
       "card": "PSOLID",
-      "id": 1,
+      "id": 9001,
       "status": "translated",
-      "target": "/PROP/SOLID/1",
-      "mid": 1
-    },
-    {
-      "card": "PSOLID",
-      "source_pid": 1,
-      "family": "BRICK",
-      "status": "translated",
-      "target": "/PART/1",
-      "element_count": 1
-    },
-    {
-      "card": "CHEXA",
-      "source_order": 20,
-      "status": "translated_first_order",
-      "target": "/BRICK/1",
-      "count": 1,
-      "source_pid": 1,
-      "source_nodes_per_element": 20,
-      "target_nodes_per_element": 8,
-      "source_nodes_preserved": {
-        "corner_nodes": 8,
-        "midside_nodes": 12,
-        "midside_nodes_used": false
-      },
-      "mapping_basis": "Nastran CHEXA20 -> first-order -> /BRICK"
+      "target": "/PROP/SOLID/9001",
+      "mid": 9001
     },
     {
       "card": "SPC",
@@ -368,6 +345,33 @@
       "node_count": 4
     },
     {
+      "card": "GRAV",
+      "id": 1,
+      "status": "translated",
+      "target": "/GRAV/1",
+      "source_sid": 1,
+      "source_cid": 0,
+      "source_scale": 1.0,
+      "source_vector": [
+        0.0,
+        0.0,
+        -9810.0
+      ],
+      "target_vector_mm_ms2": [
+        0.0,
+        0.0,
+        -0.00981
+      ],
+      "direction": "Z",
+      "fct_IDT": 0,
+      "skew_ID": 0,
+      "sens_ID": 0,
+      "grnd_ID": 0,
+      "Ascale_x": 1.0,
+      "Fscale_Y": -0.00981,
+      "blank_field_present": true
+    },
+    {
       "card": "TSTEP1",
       "status": "translated",
       "target": "/RUN/{{RUNNAME}}/1",
@@ -376,6 +380,6 @@
       "TSTOP_rad_ms": 0.0
     }
   ],
-  "starter": "D:\\BDF2RAD-X\\bdf2rad\\0-output\\03_CHEXA20_0000.rad",
-  "engine": "D:\\BDF2RAD-X\\bdf2rad\\0-output\\03_CHEXA20_0001.rad"
+  "starter": "D:\\BDF2RAD-X\\bdf2rad\\0-output\\08_GRAV_0000.rad",
+  "engine": "D:\\BDF2RAD-X\\bdf2rad\\0-output\\08_GRAV_0001.rad"
 }

@@ -1,12 +1,21 @@
 {
   "name": "RBE2",
   "lines": [
-    "/GRNOD/NODE/{{GRID}}",
-    "RBE2_{{ID}}_DEPENDENT",
-    "{{NODE_ROWS}}",
-    "/RBE2/{{ID}}",
-    "{{TITLE}}",
-    "{{NODE}}{{TRAROT}}{{SKEW}}{{GRND}}{{FLAG}}"
+    "RBE2_{{ID}}",
+    "{{DATA}}"
   ],
-  "official_url": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/rbe2_starter_r.htm"
+  "official_url": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/rbe2_starter_r.htm",
+  "format_basis": "OpenRadioss /RBE2",
+  "field_order": [
+    "node_ID",
+    "Trarot",
+    "Skew_ID",
+    "grnd_ID",
+    "Iflag"
+  ],
+  "notes": [
+    "The /RBE2 keyword is emitted by RadBlock.keyword.",
+    "The template body must not contain another /RBE2 keyword.",
+    "Dependent nodes are emitted by a separate /GRNOD/NODE Block."
+  ]
 }

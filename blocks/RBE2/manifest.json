@@ -6,10 +6,17 @@
   ],
   "order": 60,
   "target_blocks": [
-    "/GRNOD/NODE + /RBE2"
+    "/GRNOD/NODE",
+    "/RBE2"
   ],
   "status": "active",
   "official_url": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/rbe2_starter_r.htm",
-  "template": "RBE2",
-  "plugin_version": "1.0.0"
+  "mapping_rule": "Nastran RBE2 -> /GRNOD/NODE + /RBE2",
+  "notes": [
+    "Nastran independent node GN is mapped to OpenRadioss /RBE2 node_ID.",
+    "Nastran component CM is mapped to OpenRadioss Trarot.",
+    "Nastran dependent nodes GM are represented by /GRNOD/NODE.",
+    "The /RBE2 grnd_ID references the generated dependent-node group.",
+    "The /GRNOD/NODE and /RBE2 records are emitted as separate Blocks."
+  ]
 }
