@@ -184,6 +184,95 @@ def _parse_spc_fields(card):
     )
 
 
+def _parse_solid_connectivity(card, card_name, expected_nodes):
+    """
+    Parse solid-element connectivity while preserving compatibility
+    with both:
+
+      1) normal Nastran fixed-width fields
+      2) loosely aligned whitespace-separated BDF lines
+
+    The existing fixed-width parser remains the first choice.
+
+    Only when the fixed-width result contains fewer than the expected
+    number of node IDs do we fall back to the original raw BDF line(s).
+
+    No node ID is invented or guessed.
+    """
+
+    # ============================================================
+    # FIRST: existing fixed-width parser result
+    # ============================================================
+    fixed_nodes = [
+        _i(x)
+        for x in card.fields[3:]
+        if str(x).strip()
+    ]
+
+    if len(fixed_nodes) >= expected_nodes:
+        return fixed_nodes
+
+    # ============================================================
+    # SECOND: raw-line whitespace fallback
+    # ============================================================
+    #
+    # Some BDF test decks are visually written in a fixed-style
+    # layout, but the columns are not actually aligned on 8-character
+    # boundaries.
+    #
+    # Example:
+    #
+    # CHEXA   10      1       1       2       3       4       5       6       7       8
+    #
+    # The semantic content is:
+    #
+    # CHEXA 10 1 1 2 3 4 5 6 7 8
+    #
+    # The 8-character parser can split "9002" into "9" + "002".
+    # Whitespace parsing of the original raw line avoids that.
+    # ============================================================
+
+    raw_tokens = []
+
+    for raw_line in card.raw:
+        raw_tokens.extend(
+            raw_line.strip().split()
+        )
+
+    if raw_tokens:
+
+        raw_name = (
+            raw_tokens[0]
+            .upper()
+            .rstrip("*")
+        )
+
+        if raw_name == card_name:
+
+            # token 0 = card name
+            # token 1 = element ID
+            # token 2 = property ID
+            # token 3... = node IDs
+            candidate = [
+                _i(x)
+                for x in raw_tokens[3:]
+                if str(x).strip()
+            ]
+
+            if len(candidate) >= expected_nodes:
+                return candidate
+
+    # ============================================================
+    # LAST: return original fixed-field result
+    #
+    # Do not silently repair a malformed card.
+    # plugin_helpers.faces_for_element() will then issue a clear
+    # validation error for insufficient connectivity.
+    # ============================================================
+
+    return fixed_nodes
+
+
 def read_model(path, encoding="gb18030") -> Model:
     m = Model()
 
@@ -230,16 +319,46 @@ def read_model(path, encoding="gb18030") -> Model:
                 # GRID,ID,CP,X,Y,Z offsets; otherwise coordinates are
                 # shifted and all Z values can collapse to zero.
                 compact_grid = len(f) <= 5
+
                 if compact_grid:
+
                     cp = 0
-                    x = _f(F(f, 2), 0.0) or 0.0
-                    y = _f(F(f, 3), 0.0) or 0.0
-                    z = _f(F(f, 4), 0.0) or 0.0
+
+                    x = (
+                        _f(F(f, 2), 0.0)
+                        or 0.0
+                    )
+
+                    y = (
+                        _f(F(f, 3), 0.0)
+                        or 0.0
+                    )
+
+                    z = (
+                        _f(F(f, 4), 0.0)
+                        or 0.0
+                    )
+
                 else:
-                    cp = _i(F(f, 2))
-                    x = _f(F(f, 3), 0.0) or 0.0
-                    y = _f(F(f, 4), 0.0) or 0.0
-                    z = _f(F(f, 5), 0.0) or 0.0
+
+                    cp = _i(
+                        F(f, 2)
+                    )
+
+                    x = (
+                        _f(F(f, 3), 0.0)
+                        or 0.0
+                    )
+
+                    y = (
+                        _f(F(f, 4), 0.0)
+                        or 0.0
+                    )
+
+                    z = (
+                        _f(F(f, 5), 0.0)
+                        or 0.0
+                    )
 
                 cd = _i(
                     F(f, 6)
@@ -269,11 +388,17 @@ def read_model(path, encoding="gb18030") -> Model:
                     F(f, 2)
                 )
 
-                nodes = [
-                    _i(x)
-                    for x in f[3:]
-                    if str(x).strip()
-                ]
+                expected_nodes = {
+                    "CTETRA": 4,
+                    "CHEXA": 8,
+                    "CPENTA": 6,
+                }[n]
+
+                nodes = _parse_solid_connectivity(
+                    card,
+                    n,
+                    expected_nodes,
+                )
 
                 m.elements[eid] = Element(
                     eid,
@@ -520,8 +645,9 @@ def read_model(path, encoding="gb18030") -> Model:
                     F(f, 1)
                 )
 
-                comp = (
-                    F(f, 2)
+                comp = F(
+                    f,
+                    2,
                 )
 
                 m.spcs.extend(
@@ -716,11 +842,13 @@ def read_model(path, encoding="gb18030") -> Model:
                     len(vals),
                     4,
                 ):
+
                     chunk = vals[
                         k:k + 4
                     ]
 
                     if len(chunk) == 4:
+
                         faces.append(
                             tuple(chunk)
                         )
@@ -770,6 +898,7 @@ def read_model(path, encoding="gb18030") -> Model:
         s = ln.strip()
 
         if "=" in s:
+
             key, value = s.split(
                 "=",
                 1,

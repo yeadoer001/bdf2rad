@@ -6,32 +6,96 @@ from bdf2rad.core.plugin_helpers import (
 )
 
 
-def _fmt10_int(
-    value: int,
-) -> str:
-    """
-    OpenRadioss integer field.
-    """
+def _fmt10_int(value: int) -> str:
     return f"{int(value):>10d}"
 
 
-def _fmt10_text(
-    value: str,
+def _fmt_trarot(
+    component: str,
 ) -> str:
     """
-    OpenRadioss ten-character text field.
+    OpenRadioss /RBE2 Trarot_ref field.
+
+    The Trarot_ref value occupies one 10-character field.
+
+    Official internal positions:
+
+        1-3 : blank
+        4-6 : TX TY TZ
+        7   : blank
+        8-10: RX RY RZ
+
+    Example:
+
+        123456 -> "   111 111"
     """
-    return f"{str(value):>10s}"
+
+    code = dof6(
+        component
+    )
+
+    if len(code) != 6:
+        raise ValueError(
+            f"Invalid Trarot_ref code generated from "
+            f"RBE2 component {component!r}: "
+            f"{code!r}"
+        )
+
+    return (
+        f"   {code[:3]} "
+        f"{code[3:]}"
+    )
+
+
+def _rbe2_data_line(
+    independent_node: int,
+    component: str,
+    skew_id: int,
+    grnd_id: int,
+    iflag: int,
+) -> str:
+    """
+    Official /RBE2 top-level field order:
+
+        node_ID
+        Trarot_ref
+        Skew_ID
+        grnd_ID
+        Iflag
+    """
+
+    trarot = _fmt_trarot(
+        component
+    )
+
+    result = (
+        _fmt10_int(
+            independent_node
+        )
+        + trarot
+        + _fmt10_int(
+            skew_id
+        )
+        + _fmt10_int(
+            grnd_id
+        )
+        + _fmt10_int(
+            iflag
+        )
+    )
+
+    if len(result) != 50:
+        raise RuntimeError(
+            "Invalid /RBE2 data line length: "
+            f"expected 50 characters, got {len(result)}"
+        )
+
+    return result
 
 
 def _node_rows(
     node_ids: list[int],
 ) -> list[str]:
-    """
-    /GRNOD/NODE:
-    up to ten node IDs per line.
-    """
-
     rows = []
 
     for start in range(
@@ -55,94 +119,26 @@ def _node_rows(
     return rows
 
 
-def _rbe2_data(
-    independent_node: int,
-    component: str,
-    skew_id: int,
-    grnd_id: int,
-    iflag: int,
-) -> str:
-    """
-    Official OpenRadioss /RBE2 data layout:
-
-        node_ID
-        Trarot
-        Skew_ID
-        grnd_ID
-        Iflag
-    """
-
-    trarot = dof6(
-        component
-    )
-
-    return (
-        _fmt10_int(
-            independent_node
-        )
-        + _fmt10_text(
-            trarot
-        )
-        + _fmt10_int(
-            skew_id
-        )
-        + _fmt10_int(
-            grnd_id
-        )
-        + _fmt10_int(
-            iflag
-        )
-    )
-
-
 def translate(
     model,
     ctx,
     plugin,
 ):
     """
-    Nastran RBE2 -> OpenRadioss.
+    Nastran RBE2 ->
 
-    Source repository model:
-
-        RBE2.rid
-        RBE2.independent
-        RBE2.cm
-        RBE2.dependent
-
-    Target:
-
-        /GRNOD/NODE/<grnd_ID>/<unit_ID>
-
+        /GRNOD/NODE/<grnd_ID>/0
         /RBE2/<rbe2_ID>
-
-    Official /RBE2 format:
-
-        node_ID
-        Trarot
-        Skew_ID
-        grnd_ID
-        Iflag
-
-    The dependent nodes must be written into an independent
-    /GRNOD/NODE Block, and /RBE2 references that group through
-    grnd_ID.
     """
 
     blocks = []
     audit = []
 
-    # ------------------------------------------------------------
-    # Allocate from a dedicated namespace.
-    # ------------------------------------------------------------
     next_group_id = ctx.ids.get(
         "next:RBE2_GRNOD",
         420000,
     )
 
-    # ------------------------------------------------------------
-    # Process RBE2 records using the ACTUAL repository data model.
-    # ------------------------------------------------------------
     for rid, record in sorted(
         model.rbe2.items()
     ):
@@ -164,25 +160,6 @@ def translate(
             for node_id in record.dependent
         ]
 
-        # --------------------------------------------------------
-        # Validate RBE2 identity.
-        # --------------------------------------------------------
-        if rbe2_id <= 0:
-            raise ValueError(
-                f"RBE2 ID must be positive, "
-                f"got {rbe2_id}"
-            )
-
-        # --------------------------------------------------------
-        # Validate independent node.
-        # --------------------------------------------------------
-        if independent_node <= 0:
-            raise ValueError(
-                f"RBE2 {rbe2_id}: "
-                f"invalid independent node "
-                f"{independent_node}"
-            )
-
         if independent_node not in (
             model.nodes
         ):
@@ -192,13 +169,10 @@ def translate(
                 f"{independent_node}"
             )
 
-        # --------------------------------------------------------
-        # Validate dependent node list.
-        # --------------------------------------------------------
         if not dependent_nodes:
             raise ValueError(
                 f"RBE2 {rbe2_id}: "
-                f"dependent node list is empty"
+                "dependent node list is empty"
             )
 
         missing = [
@@ -219,80 +193,38 @@ def translate(
                 f"{preview}"
             )
 
-        # --------------------------------------------------------
-        # Remove duplicate dependent nodes while preserving order.
-        # --------------------------------------------------------
         dependent_nodes = list(
             dict.fromkeys(
                 dependent_nodes
             )
         )
 
-        # --------------------------------------------------------
-        # Independent node cannot simultaneously be dependent.
-        # --------------------------------------------------------
         if independent_node in (
             dependent_nodes
         ):
             raise ValueError(
                 f"RBE2 {rbe2_id}: "
                 f"independent node "
-                f"{independent_node} is also a dependent node"
+                f"{independent_node} is also listed "
+                "as a dependent node"
             )
 
-        # --------------------------------------------------------
-        # Nastran CM -> six-character Radioss Trarot.
-        # --------------------------------------------------------
-        trarot = dof6(
-            component
-        )
-
-        if len(trarot) != 6:
-            raise ValueError(
-                f"RBE2 {rbe2_id}: "
-                f"invalid Trarot generated from "
-                f"component {component!r}: "
-                f"{trarot!r}"
-            )
-
-        # --------------------------------------------------------
-        # Allocate /GRNOD/NODE group.
-        # --------------------------------------------------------
         grnd_id = int(
             next_group_id
         )
 
         next_group_id += 1
 
-        # Persist allocator.
         ctx.ids[
             "next:RBE2_GRNOD"
         ] = next_group_id
 
-        # --------------------------------------------------------
-        # Nastran RBE2 in the current verified translator only
-        # supports the global coordinate system.
-        # Therefore:
-        #
-        #     Skew_ID = 0
-        #
-        # --------------------------------------------------------
         skew_id = 0
-
-        # --------------------------------------------------------
-        # Official default rigid-body formulation:
-        #
-        #     Iflag = 0
-        # --------------------------------------------------------
         iflag = 0
 
-        # ========================================================
-        # BLOCK 1:
-        #
-        # /GRNOD/NODE/<grnd_ID>/<unit_ID>
-        #
-        # Unit ID 0 = repository/global system.
-        # ========================================================
+        # --------------------------------------------------------
+        # /GRNOD/NODE
+        # --------------------------------------------------------
 
         grnod_keyword = (
             f"/GRNOD/NODE/"
@@ -319,11 +251,9 @@ def translate(
             )
         )
 
-        # ========================================================
-        # BLOCK 2:
-        #
-        # /RBE2/<rbe2_ID>
-        # ========================================================
+        # --------------------------------------------------------
+        # /RBE2
+        # --------------------------------------------------------
 
         rbe2_keyword = (
             f"/RBE2/{rbe2_id}"
@@ -331,7 +261,7 @@ def translate(
 
         rbe2_lines = [
             f"RBE2_{rbe2_id}",
-            _rbe2_data(
+            _rbe2_data_line(
                 independent_node=(
                     independent_node
                 ),
@@ -352,6 +282,10 @@ def translate(
             )
         )
 
+        trarot = dof6(
+            component
+        )
+
         audit.append(
             {
                 "card": "RBE2",
@@ -370,7 +304,12 @@ def translate(
                 "source_component": (
                     component
                 ),
-                "Trarot": trarot,
+                "Trarot_ref": trarot,
+                "Trarot_ref_field": (
+                    _fmt_trarot(
+                        component
+                    )
+                ),
                 "Skew_ID": skew_id,
                 "grnd_ID": grnd_id,
                 "Iflag": iflag,

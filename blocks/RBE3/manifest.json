@@ -6,10 +6,19 @@
   ],
   "order": 61,
   "target_blocks": [
-    "/GRNOD/NODE + /RBE3"
+    "/GRNOD/NODE",
+    "/RBE3"
   ],
   "status": "active",
   "official_url": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/rbe3_starter_r.htm",
   "template": "RBE3",
-  "plugin_version": "1.0.0"
+  "plugin_version": "1.1.0",
+  "mapping_rule": "Nastran RBE3 -> /GRNOD/NODE + /RBE3",
+  "notes": [
+    "The reference node is mapped to Node_IDr.",
+    "Reference DOF is mapped to Trarot_ref.",
+    "Each independent-node set is represented by /GRNOD/NODE.",
+    "Trarot_M is written as the single fixed-width Trarot field.",
+    "The generated /GRNOD/NODE Block and /RBE3 Block are independent Radioss Blocks."
+  ]
 }

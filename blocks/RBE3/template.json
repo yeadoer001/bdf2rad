@@ -1,13 +1,20 @@
 {
   "name": "RBE3",
   "lines": [
-    "/GRNOD/NODE/{{GRID}}",
-    "RBE3_{{ID}}_INDEPENDENT",
-    "{{NODE_ROWS}}",
-    "/RBE3/{{ID}}",
-    "{{TITLE}}",
-    "{{NODE}}{{TRAROT}}{{NSET}}{{IMOD}}{{IFORM}}",
-    "{{ROWS}}"
+    "RBE3_{{ID}}",
+    "{{DATA}}"
   ],
-  "official_url": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/rbe3_starter_r.htm"
+  "official_url": "https://help.altair.com/hwsolvers/rad/topics/solvers/rad/rbe3_starter_r.htm",
+  "format_basis": "OpenRadioss /RBE3",
+  "field_order": [
+    "Node_IDr",
+    "Trarot_ref",
+    "N_set",
+    "I_modif",
+    "Iform",
+    "WT_i",
+    "Trarot_M_i",
+    "skew_ID_i",
+    "grnd_ID_i"
+  ]
 }
