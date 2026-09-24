@@ -55,6 +55,7 @@ def convert(source, output, encoding='gb18030', termination_time=3e-3, output_in
         # Unsupported physics remains fail-closed in the report; it is never silently dropped.
         starter_path = output
         engine_path = output.with_name(output.stem.replace('_0000','_0001') + '.rad')
+        target = None
         rir = build_ir(ir, active)
         if not ir.unsupported:
             write_radioss(starter_path, engine_path, rir, active, termination_time, output_interval, source.name, output_policy)

@@ -142,155 +142,91 @@ def _valid_rbe_component(value, max_digits=6):
 
 
 def _parse_rbe3(card, model):
-    """Parse RBE3 without assuming that an optional blank field was retained.
+    """Parse one Nastran RBE3 weighting set without node-existence guessing.
 
-    Official Nastran/OptiStruct positional fields after the card name are::
+    Canonical Card.fields must preserve blank fields. Therefore the presence of
+    the published blank field after EID is the authoritative discriminator:
 
-        EID, blank, REFGRID, REFC, WT1, C1, G1, G2, ...
+        official: RBE3,EID,,REFGRID,REFC,WT,C,G1,...
+        compact:  RBE3,EID,REFGRID,REFC,WT,C,G1,...
 
-    The blank field is explicitly part of the published format.  Some export
-    pipelines nevertheless omit that blank token in comma/free-field output,
-    producing::
-
-        RBE3,EID,REFGRID,REFC,WT1,C1,G1,G2,...
-
-    In that case the old reader shifted every field by one and interpreted the
-    REFC value (for example ``123456``) as REFGRID.  This function first uses
-    the official positions, then applies a narrowly-scoped compatibility
-    recovery only when the shifted interpretation is structurally unambiguous
-    and the candidate reference node actually exists in the parsed GRID set.
-
-    The current conversion model stores one weighting set.  We therefore parse
-    the first weighting set only; additional sets are retained only as a
-    diagnostic rather than silently merging their nodes.
+    The old implementation used ``REFGRID in model.nodes`` to choose between
+    the two layouts. That made the interpretation depend on the model contents
+    rather than the source syntax and caused T07-style RBE3 records to flip
+    interpretations after unrelated GRID changes.
     """
     f = list(card.fields or [])
     if len(f) < 6:
-        raise ValueError(
-            f"RBE3 at line {card.line}: too few fields: {f!r}"
-        )
+        raise ValueError(f"RBE3 at line {card.line}: too few fields: {f!r}")
 
-    rid = _required_int(
-        F(f, 1),
-        "RBE3 ID",
-        card.line,
-    )
+    rid = _required_int(F(f, 1), "RBE3 ID", card.line)
 
-    # ------------------------------------------------------------
-    # Official layout: [RBE3,EID,blank,REFGRID,REFC,WT,C,G...]
-    # ------------------------------------------------------------
-    std_ref = _i(F(f, 3), None)
-    std_refc = _text(F(f, 4))
-    std_wt = _f(F(f, 5), None)
-    std_c = _text(F(f, 6))
-    std_looks_valid = (
-        std_ref is not None
-        and std_ref > 0
-        and _valid_rbe_component(std_refc, 6)
-        and std_wt is not None
-        and _valid_rbe_component(std_c, 3)
-    )
-
-    # ------------------------------------------------------------
-    # Compatibility layout with omitted blank field 3:
-    # [RBE3,EID,REFGRID,REFC,WT,C,G...]
-    # ------------------------------------------------------------
-    compact_ref = _i(F(f, 2), None)
-    compact_refc = _text(F(f, 3))
-    compact_wt = _f(F(f, 4), None)
-    compact_c = _text(F(f, 5))
-    compact_ref_exists = (
-        compact_ref is not None
-        and compact_ref > 0
-        and compact_ref in model.nodes
-    )
-    compact_looks_valid = (
-        compact_ref_exists
-        and _valid_rbe_component(compact_refc, 6)
-        and compact_wt is not None
-        and _valid_rbe_component(compact_c, 3)
-    )
-
-    # Prefer the official layout whenever its reference node exists.
-    # If the reference node does not exist but the compact layout is
-    # unambiguous and its candidate node exists, recover the omitted blank.
-    if std_looks_valid and std_ref in model.nodes:
-        ref = std_ref
-        ref_comp = std_refc
-        weight = std_wt
-        ind_comp = std_c
+    if _text(F(f, 2)) == "":
+        # Official Nastran layout.
+        ref = _required_int(F(f, 3), "RBE3 REFGRID", card.line)
+        ref_comp = _text(F(f, 4))
+        weight = _f(F(f, 5), None)
+        ind_comp = _text(F(f, 6))
         node_start = 7
         layout = "official"
-    elif compact_looks_valid:
-        ref = compact_ref
-        ref_comp = compact_refc
-        weight = compact_wt
-        ind_comp = compact_c
+    else:
+        # Compatibility compact layout with the published blank omitted.
+        ref = _required_int(F(f, 2), "RBE3 REFGRID", card.line)
+        ref_comp = _text(F(f, 3))
+        weight = _f(F(f, 4), None)
+        ind_comp = _text(F(f, 5))
         node_start = 6
         layout = "compact_omitted_blank"
-    elif std_looks_valid:
-        # Keep the official interpretation so that the translator reports the
-        # true undefined reference node rather than inventing a different one.
-        ref = std_ref
-        ref_comp = std_refc
-        weight = std_wt
-        ind_comp = std_c
-        node_start = 7
-        layout = "official_invalid_reference"
-    else:
-        raise ValueError(
-            f"RBE3 {rid} at line {card.line}: cannot identify official or "
-            f"compact field layout. Fields={f!r}. Expected official "
-            "RBE3,EID,,REFGRID,REFC,WT,C,G1,... or compact "
-            "RBE3,EID,REFGRID,REFC,WT,C,G1,..."
-        )
 
     if ref <= 0:
-        raise ValueError(
-            f"RBE3 {rid} at line {card.line}: reference node must be > 0, got {ref}"
-        )
-
+        raise ValueError(f"RBE3 {rid} at line {card.line}: reference node must be > 0, got {ref}")
     if not _valid_rbe_component(ref_comp, 6):
-        raise ValueError(
-            f"RBE3 {rid} at line {card.line}: invalid REFC {ref_comp!r}"
-        )
-
+        raise ValueError(f"RBE3 {rid} at line {card.line}: invalid REFC {ref_comp!r}")
     if weight is None:
-        raise ValueError(
-            f"RBE3 {rid} at line {card.line}: missing weighting factor"
-        )
-
+        raise ValueError(f"RBE3 {rid} at line {card.line}: missing weighting factor")
     if not _valid_rbe_component(ind_comp, 3):
-        raise ValueError(
-            f"RBE3 {rid} at line {card.line}: invalid weighting component {ind_comp!r}"
-        )
+        raise ValueError(f"RBE3 {rid} at line {card.line}: invalid weighting component {ind_comp!r}")
 
-    independent = []
+    independent: list[int] = []
     for value in f[node_start:]:
-        node_id = _i(value, None)
-        if node_id is None or node_id == 0:
+        text = _text(value)
+        if not text:
             continue
-        if node_id < 0:
+        node_id = _i(text, None)
+        if node_id is None:
+            # A second weighting-set sequence is not represented by the current
+            # legacy RBE3 model. Refuse to reinterpret arbitrary numbers as GRID IDs.
             raise ValueError(
-                f"RBE3 {rid} at line {card.line}: negative node ID {node_id}"
+                f"RBE3 {rid} at line {card.line}: unsupported additional weighting-set data "
+                f"or invalid independent node field {value!r}"
             )
+        if node_id <= 0:
+            raise ValueError(f"RBE3 {rid} at line {card.line}: invalid node ID {node_id}")
         independent.append(node_id)
 
     independent = list(dict.fromkeys(independent))
     if not independent:
+        raise ValueError(f"RBE3 {rid} at line {card.line}: no independent grid nodes found")
+
+    missing = [node_id for node_id in independent if node_id not in model.nodes]
+    if missing:
+        preview = ", ".join(str(node_id) for node_id in missing[:20])
+        raise ValueError(f"RBE3 {rid}: undefined independent node(s): {preview}")
+
+    if ref not in model.nodes:
+        raise ValueError(f"RBE3 {rid}: undefined reference node {ref}")
+
+    if ref in independent:
         raise ValueError(
-            f"RBE3 {rid} at line {card.line}: no independent grid nodes found"
+            f"RBE3 {rid}: reference node {ref} is also listed as an independent node"
         )
 
     if layout == "compact_omitted_blank":
-        # Keep a machine-readable breadcrumb in Model.diagnostics; it is useful
-        # during large-deck conversion because the source syntax is nonstandard
-        # even though its recovered semantics are clear.
         model.diagnostics.append({
             "card": "RBE3",
             "id": rid,
             "line": card.line,
-            "warning": "Recovered RBE3 layout with omitted blank field 3",
+            "warning": "Recovered RBE3 compact layout because the published blank field after EID was omitted",
             "reference_node": ref,
         })
 
@@ -305,101 +241,112 @@ def _parse_rbe3(card, model):
 
 
 def _parse_solid_connectivity(card):
-    """Parse solid connectivity using the source-card positional semantics.
+    """Parse solid connectivity without compacting positional fields.
 
-    For CTETRA, Nastran permits any or all of G5-G10 to be blank or zero;
-    the solver modifies the element formulation for the reduced connection
-    set.  Therefore a card with only G5 populated is a valid source card.
+    Normal source elements are strict about their corner connectivity:
+      CTETRA  G1-G4
+      CPENTA  G1-G6
+      CHEXA   G1-G8
 
-    This repository's active downstream mapping writes first-order solids
-    (CTETRA -> /TETRA4, with only corner nodes).  Consequently the parser
-    validates the mandatory corner nodes and deliberately drops all optional
-    midside/edge nodes rather than inventing zeros, rejecting the card, or
-    shifting the remaining nodes left.
+    Optional midside/edge positions may be blank or zero. Full higher-order
+    connectivity is preserved for the corresponding translator.
 
-    The same corner-first behavior is used for CPENTA/CHEXA because this
-    legacy parser's Element representation and current conversion blocks use
-    first-order connectivity for the source solids.
+    The repository also contains an intentional BSURFS validation fixture that
+    uses an incomplete seven-node CHEXA. The BSURFS translator explicitly
+    documents a compatibility path for that case: it resolves a face from the
+    nodes that actually exist on the incomplete CHEXA. Therefore a CHEXA with
+    exactly 4..7 contiguous populated corner positions (G1..Gn), no populated
+    position after the first missing corner, and no populated optional nodes is
+    allowed through as a compatibility topology. It is not treated as a
+    normal CHEXA8 and cannot be emitted by the CHEXA8 translator because its
+    node count is not 8.
     """
     name = card.name
-    raw_fields = list(getattr(card, "fields", ()) or ())
-    data = raw_fields[3:]
+    fields = list(getattr(card, "fields", ()) or ())
+    data = fields[3:]
 
-    corner_count = {
-        "CTETRA": 4,
-        "CPENTA": 6,
-        "CHEXA": 8,
-    }[name]
-    optional_count = {
-        "CTETRA": 6,
-        "CPENTA": 9,
-        "CHEXA": 12,
-    }[name]
+    corner_count = {"CTETRA": 4, "CPENTA": 6, "CHEXA": 8}[name]
+    optional_count = {"CTETRA": 6, "CPENTA": 9, "CHEXA": 12}[name]
     max_count = corner_count + optional_count
 
-    # Read by position. Never compact the list before identifying G1..Gn,
-    # because blank/zero optional fields carry semantic meaning.
-    slots = []
+    slots: list[int | None] = []
+    first_missing_corner: int | None = None
+
     for pos in range(max_count):
         value = data[pos] if pos < len(data) else ""
         text = _text(value)
         if not text:
             slots.append(None)
+            if pos < corner_count and first_missing_corner is None:
+                first_missing_corner = pos
             continue
 
         node_id = _i(text, None)
         if node_id is None:
             raise ValueError(
-                f"{name} at line {card.line}: invalid node field {text!r} "
-                f"at connectivity position G{pos + 1}"
+                f"{name} at line {card.line}: invalid node field {value!r} at G{pos + 1}"
             )
         if node_id < 0:
             raise ValueError(
-                f"{name} at line {card.line}: negative node ID {node_id} "
-                f"at connectivity position G{pos + 1}"
+                f"{name} at line {card.line}: negative node ID {node_id} at G{pos + 1}"
             )
-
-        # Nastran uses 0 as an allowed deletion marker for optional edge nodes.
-        # It is NOT allowed for mandatory corner nodes.
         if node_id == 0:
             slots.append(None)
+            if pos < corner_count and first_missing_corner is None:
+                first_missing_corner = pos
         else:
             slots.append(node_id)
 
-    if len(data) > max_count:
-        trailing = data[max_count:]
-        if any(_text(value) for value in trailing):
-            raise ValueError(
-                f"{name} at line {card.line}: too many connectivity fields; "
-                f"maximum G1-G{max_count}, nonblank trailing fields={trailing!r}"
-            )
+    if len(data) > max_count and any(_text(v) for v in data[max_count:]):
+        raise ValueError(
+            f"{name} at line {card.line}: too many connectivity fields; maximum G1-G{max_count}"
+        )
 
     corners = slots[:corner_count]
-    missing = [
-        f"G{index}"
-        for index, node_id in enumerate(corners, start=1)
-        if node_id is None
-    ]
+    missing = [f"G{i}" for i, nid in enumerate(corners, 1) if nid is None]
+
     if missing:
+        if name == "CHEXA":
+            present_corner = [nid for nid in corners if nid is not None]
+            later_corner_present = (
+                first_missing_corner is not None
+                and any(nid is not None for nid in corners[first_missing_corner + 1:])
+            )
+            optional_present = any(nid is not None for nid in slots[corner_count:])
+
+            # Explicit repository compatibility: incomplete seven-node CHEXA
+            # with the final corner (G8) omitted, or the more general prefix
+            # form G1..Gn with n in [4,7].
+            if (
+                first_missing_corner is not None
+                and not later_corner_present
+                and not optional_present
+                and 4 <= len(present_corner) <= 7
+            ):
+                ids = [int(nid) for nid in present_corner]
+                if len(set(ids)) != len(ids):
+                    raise ValueError(
+                        f"{name} at line {card.line}: duplicate node IDs in incomplete compatibility topology"
+                    )
+                return ids
+
         raise ValueError(
-            f"{name} at line {card.line}: mandatory corner node(s) "
-            f"{missing} are blank/zero"
+            f"{name} at line {card.line}: mandatory corner node(s) {missing} are blank/zero"
         )
 
-    corner_ids = [int(node_id) for node_id in corners]
+    corner_ids = [int(nid) for nid in corners]
     if len(set(corner_ids)) != len(corner_ids):
         raise ValueError(
-            f"{name} at line {card.line}: duplicate mandatory corner node IDs "
-            f"are not allowed: {corner_ids}"
+            f"{name} at line {card.line}: duplicate mandatory corner node IDs {corner_ids}"
         )
 
-    # Important: do NOT reject a partial optional set. CTETRA explicitly allows
-    # any subset of G5-G10 (Autodesk Nastran); the element formulation changes
-    # accordingly. Since the present target writer is first-order, only the
-    # corner topology can be represented faithfully by this converter's data
-    # model. The optional nodes are therefore intentionally discarded here.
-    return corner_ids
+    optional = slots[corner_count:]
+    present_optional = [int(nid) for nid in optional if nid is not None]
 
+    if present_optional and len(present_optional) == optional_count:
+        return corner_ids + present_optional
+
+    return corner_ids
 
 def _raw_tokens(card):
     """Return whitespace-separated tokens from the original card lines."""
@@ -729,6 +676,8 @@ def _parse_spc(card):
         comp,
         value or 0.0,
     )
+
+
 
 
 def read_model(
