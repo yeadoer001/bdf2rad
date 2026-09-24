@@ -11,72 +11,159 @@ from bdf2rad.core.plugin_helpers import (
 
 def _family(element):
     """
-    Resolve the target Radioss element family according to
-    the official Nastran -> Radioss conversion mapping.
+    Determine the target Radioss element family from the
+    parsed Nastran element topology.
 
-    Important mappings:
+    Valid source solid orders:
+
+        CHEXA 8 / 20
+        CTETRA 4 / 10
+        CPENTA 6 / 15
+
+    Current target mappings in this project:
 
         CHEXA8
             -> /BRICK
 
         CHEXA20
-            -> first order
             -> /BRICK
+            (current project performs first-order target mapping)
 
         CTETRA4
             -> /TETRA4
 
         CTETRA10
-            -> first order
             -> /TETRA4
+            (first-order downgrade)
 
         CPENTA6 / CPENTA15
-            -> first order / degenerated brick route
+            -> BRICK family
+            (actual element topology conversion is handled
+             by the CPENTA translator)
     """
 
+    element_type = (
+        str(
+            getattr(
+                element,
+                "typ",
+                "",
+            )
+        )
+        .strip()
+        .upper()
+    )
+
+    order = int(
+        getattr(
+            element,
+            "order",
+            0,
+        )
+        or 0
+    )
+
     # ============================================================
-    # HEXA
+    # CHEXA
     # ============================================================
 
     if (
-        element.typ == "CHEXA"
-        and len(element.nodes) == 8
+        element_type == "CHEXA"
+        and order in {
+            8,
+            20,
+        }
     ):
         return "BRICK"
 
-    if (
-        element.typ == "CHEXA"
-        and len(element.nodes) == 20
-    ):
-        return "BRICK"
-
     # ============================================================
-    # TETRA
+    # CTETRA
     # ============================================================
 
     if (
-        element.typ == "CTETRA"
-        and len(element.nodes) == 4
-    ):
-        return "TETRA4"
-
-    if (
-        element.typ == "CTETRA"
-        and len(element.nodes) == 10
+        element_type == "CTETRA"
+        and order in {
+            4,
+            10,
+        }
     ):
         return "TETRA4"
 
     # ============================================================
-    # PENTA
+    # CPENTA
     # ============================================================
 
     if (
-        element.typ == "CPENTA"
-        and len(element.nodes) >= 6
+        element_type == "CPENTA"
+        and order in {
+            6,
+            15,
+        }
     ):
         return "BRICK"
 
     return "UNSUPPORTED"
+
+
+def _require_property_and_material(
+    model,
+    pid,
+):
+    """
+    Validate the complete PSOLID -> MAT1 reference chain.
+
+    Required chain:
+
+        PSOLID PID
+            |
+            +--> Property exists
+            |
+            +--> Property.MID exists
+                    |
+                    +--> MAT1 exists
+
+    Never emit a /PART whose material ID does not exist.
+    """
+
+    prop = model.props.get(
+        pid
+    )
+
+    if prop is None:
+        raise ValueError(
+            f"PSOLID {pid} is referenced by an element, "
+            f"but the PSOLID property does not exist."
+        )
+
+    prop_id = int(
+        prop.pid
+    )
+
+    mat_id = int(
+        prop.mid
+    )
+
+    if mat_id <= 0:
+        raise ValueError(
+            f"PSOLID {pid} references invalid "
+            f"material ID {mat_id}."
+        )
+
+    material = model.mats.get(
+        mat_id
+    )
+
+    if material is None:
+        raise ValueError(
+            f"PSOLID {pid} references MAT1 {mat_id}, "
+            f"but MAT1 {mat_id} was not successfully "
+            f"parsed from the BDF."
+        )
+
+    return (
+        prop_id,
+        mat_id,
+    )
 
 
 def translate(
@@ -85,21 +172,35 @@ def translate(
     plugin,
 ):
     """
-    Generate /PART definitions grouped by:
+    Generate Radioss /PART definitions.
 
-        source PID
+    PARTs are grouped by:
+
+        source PSOLID PID
         +
-        actual target Radioss family
+        actual target element family
 
-    The family name here MUST exactly match the name queried
-    by each element translator.
+    Before a PART is emitted, this translator verifies:
+
+        PSOLID exists
+        MAT1 exists
+        material ID is valid
+
+    This prevents invalid RAD such as:
+
+        /PART/1
+        ...
+        1 1 0 0
+
+    when /MAT/LAW1/1 was never generated.
     """
 
     families = defaultdict(list)
 
     # ------------------------------------------------------------
-    # Group elements by source PID + target family.
+    # Group source elements by PID and target family.
     # ------------------------------------------------------------
+
     for element in model.elements.values():
 
         family = _family(
@@ -111,7 +212,7 @@ def translate(
 
         families[
             (
-                element.pid,
+                int(element.pid),
                 family,
             )
         ].append(
@@ -126,8 +227,9 @@ def translate(
     next_part_id = 100000
 
     # ------------------------------------------------------------
-    # Generate PARTs.
+    # Generate PART definitions.
     # ------------------------------------------------------------
+
     for (
         pid,
         family,
@@ -142,21 +244,18 @@ def translate(
         }
 
         # --------------------------------------------------------
-        # If one PID maps to exactly one target family, preserve
-        # the original PID as the Radioss PART ID.
+        # Preserve the source PID as PART ID when this PID only
+        # maps to one target family.
         # --------------------------------------------------------
+
         if len(pid_families) == 1:
 
             part_id = pid
 
         else:
 
-            # ----------------------------------------------------
-            # Same source PSOLID PID used by several target
-            # element families: split into independent Radioss
-            # PART IDs.
-            # ----------------------------------------------------
             part_id = next_part_id
+
             next_part_id += 1
 
         part_map[
@@ -166,38 +265,43 @@ def translate(
             )
         ] = part_id
 
-        prop = model.props.get(
-            pid
+        # --------------------------------------------------------
+        # Validate PSOLID -> MAT1 before writing PART.
+        # --------------------------------------------------------
+
+        prop_id, mat_id = (
+            _require_property_and_material(
+                model,
+                pid,
+            )
         )
 
-        if prop is None:
-            prop_id = 0
-            mat_id = 0
-
-        else:
-            prop_id = int(
-                prop.pid
-            )
-
-            mat_id = int(
-                prop.mid
-            )
-
         values = {
-            "ID": part_id,
-            "TITLE": (
-                f"BDF_PART_"
-                f"{pid}_"
-                f"{family}"
-            ),
-            "PROP": fi(
-                prop_id
-            ),
-            "MAT": fi(
-                mat_id
-            ),
-            "SUBSET": fi(0),
-            "THICK": fi(0),
+            "ID":
+                int(part_id),
+
+            "TITLE":
+                (
+                    f"BDF_PART_"
+                    f"{pid}_"
+                    f"{family}"
+                ),
+
+            "PROP":
+                fi(
+                    prop_id
+                ),
+
+            "MAT":
+                fi(
+                    mat_id
+                ),
+
+            "SUBSET":
+                fi(0),
+
+            "THICK":
+                fi(0),
         }
 
         rendered = emit(
@@ -216,24 +320,37 @@ def translate(
 
         audit.append(
             {
-                "card": "PSOLID",
-                "source_pid": pid,
-                "target_family": family,
-                "status": "translated",
-                "target": (
-                    f"/PART/{part_id}"
-                ),
-                "property_id": prop_id,
-                "material_id": mat_id,
-                "element_count": len(
-                    elements
-                ),
+                "card":
+                    "PSOLID",
+
+                "source_pid":
+                    pid,
+
+                "target_family":
+                    family,
+
+                "status":
+                    "translated",
+
+                "target":
+                    f"/PART/{part_id}",
+
+                "property_id":
+                    prop_id,
+
+                "material_id":
+                    mat_id,
+
+                "element_count":
+                    len(elements),
             }
         )
 
     # ------------------------------------------------------------
-    # Make the exact mapping available to element translators.
+    # Expose exact source-PID / target-family mapping to element
+    # translators.
     # ------------------------------------------------------------
+
     ctx.metadata[
         "part_map"
     ] = part_map

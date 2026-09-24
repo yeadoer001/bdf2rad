@@ -5,7 +5,7 @@ from bdf2rad.core.discovery import discover_blocks, describe
 from bdf2rad.core.converter import convert
 
 # ================= USER CONFIGURATION =================
-INPUT_BDF = r'E:\openradioss\input\Solution 3-1.bdf'
+INPUT_BDF = r'E:\openradioss\input\T02_GRIDSTAR_TETRA10\input.bdf'
 OUTPUT_DIR = r'D:\BDF2RAD-X\bdf2rad\0-output'
 BLOCK_ROOT = Path(__file__).resolve().parent / 'blocks'
 ENCODING = 'gb18030'

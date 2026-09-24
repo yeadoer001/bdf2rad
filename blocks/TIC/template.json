@@ -1,11 +1,7 @@
 {
   "name": "INIVEL_TRA",
   "lines": [
-    "/GRNOD/NODE/{{GRID}}",
-    "IC_VELOCITY_{{DOF}}",
-    "{{NODE_ROWS}}",
-    "/INIVEL/TRA/{{ID}}",
-    "Initial velocity DOF {{DOF}}",
+    "{{TITLE}}",
     "{{VX}}{{VY}}{{VZ}}{{GRND}}{{SKEW}}",
     "{{TSTART}}{{SENS}}"
   ],
